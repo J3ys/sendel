@@ -16,6 +16,9 @@ A clean, modern, and responsive GitHub Pages website for IT professionals, with 
 ## Structure
 
 - `index.html` - Main HTML file with all content sections
+- `terms.html` - Terms and Conditions page
+- `privacy.html` - Privacy Policy page
+- `faq.html` - Instructions and FAQ page
 - `css/styles.css` - Styling for the entire website
 - `js/script.js` - Interactive functionality
 - `images/` - Directory containing SVG diagrams for projects

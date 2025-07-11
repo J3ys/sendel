@@ -542,6 +542,21 @@ footer {
     border-top: 1px solid var(--border-color);
 }
 
+.footer-links {
+    margin-top: 15px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
 /* Modal */
 .modal {
     display: none;
@@ -572,6 +587,97 @@ footer {
     font-size: 1.8rem;
     cursor: pointer;
     color: var(--text-color);
+}
+
+/* Content Pages (Terms, Privacy, FAQ) */
+.content-container {
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    margin-bottom: 30px;
+}
+
+.content-container h3 {
+    color: var(--primary-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.content-container h4 {
+    color: var(--primary-color);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.content-container p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.content-container ul, 
+.content-container ol {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.content-container li {
+    margin-bottom: 10px;
+}
+
+.faq-item {
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.last-updated {
+    font-style: italic;
+    color: var(--secondary-color);
+    text-align: right;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+
+.instructions ol {
+    counter-reset: item;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.instructions li {
+    counter-increment: item;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 40px;
+}
+
+.instructions li:before {
+    content: counter(item);
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.instructions strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--primary-color);
 }
 
 /* Responsive Design */
