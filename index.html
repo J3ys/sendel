@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Professional Portfolio | Enterprise Architect & E-commerce Specialist</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Portfolio</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#talks">Talks</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Certified Enterprise Architect | E-commerce Specialist | Tech Leader</h1>
+                <p class="lead">Designing scalable, resilient architectures for modern e-commerce solutions</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Skills & Technology</h2>
+                <div class="skills-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="frontend">Frontend</button>
+                    <button class="filter-btn" data-filter="backend">Backend</button>
+                    <button class="filter-btn" data-filter="architecture">Architecture</button>
+                    <button class="filter-btn" data-filter="devops">DevOps</button>
+                    <button class="filter-btn" data-filter="ai">AI</button>
+                </div>
+                <div class="skills-grid">
+                    <!-- Frontend Skills -->
+                    <div class="skill-card" data-category="frontend">
+                        <i class="fab fa-html5"></i>
+                        <h3>HTML5/CSS3</h3>
+                    </div>
+                    <div class="skill-card" data-category="frontend">
+                        <i class="fab fa-js"></i>
+                        <h3>JavaScript</h3>
+                    </div>
+                    <div class="skill-card" data-category="frontend">
+                        <i class="fab fa-react"></i>
+                        <h3>React</h3>
+                    </div>
+                    
+                    <!-- Backend Skills -->
+                    <div class="skill-card" data-category="backend">
+                        <i class="fab fa-java"></i>
+                        <h3>Java</h3>
+                    </div>
+                    <div class="skill-card" data-category="backend">
+                        <i class="fab fa-node-js"></i>
+                        <h3>Node.js</h3>
+                    </div>
+                    <div class="skill-card" data-category="backend">
+                        <i class="fas fa-database"></i>
+                        <h3>SQL/NoSQL</h3>
+                    </div>
+                    
+                    <!-- Architecture Skills -->
+                    <div class="skill-card" data-category="architecture">
+                        <i class="fas fa-sitemap"></i>
+                        <h3>Microservices</h3>
+                    </div>
+                    <div class="skill-card" data-category="architecture">
+                        <i class="fas fa-project-diagram"></i>
+                        <h3>System Design</h3>
+                    </div>
+                    <div class="skill-card" data-category="architecture">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud Architecture</h3>
+                    </div>
+                    
+                    <!-- DevOps Skills -->
+                    <div class="skill-card" data-category="devops">
+                        <i class="fab fa-docker"></i>
+                        <h3>Docker</h3>
+                    </div>
+                    <div class="skill-card" data-category="devops">
+                        <i class="fab fa-kubernetes"></i>
+                        <h3>Kubernetes</h3>
+                    </div>
+                    <div class="skill-card" data-category="devops">
+                        <i class="fab fa-aws"></i>
+                        <h3>AWS</h3>
+                    </div>
+                    
+                    <!-- AI Skills -->
+                    <div class="skill-card" data-category="ai">
+                        <i class="fas fa-brain"></i>
+                        <h3>Machine Learning</h3>
+                    </div>
+                    <div class="skill-card" data-category="ai">
+                        <i class="fas fa-robot"></i>
+                        <h3>AI Integration</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/project1.svg" alt="E-commerce Platform Architecture">
+                        </div>
+                        <div class="project-content">
+                            <h3>Enterprise E-commerce Platform</h3>
+                            <p class="project-category">Architecture & Implementation</p>
+                            <p>Designed and implemented a scalable microservices architecture for a high-traffic e-commerce platform.</p>
+                            <div class="project-tech">
+                                <span>Microservices</span>
+                                <span>Java</span>
+                                <span>Spring Boot</span>
+                                <span>Kubernetes</span>
+                            </div>
+                            <div class="project-outcomes">
+                                <h4>Business Outcomes:</h4>
+                                <ul>
+                                    <li>50% reduction in page load time</li>
+                                    <li>99.99% uptime during peak seasons</li>
+                                    <li>30% increase in conversion rate</li>
+                                </ul>
+                            </div>
+                            <button class="btn btn-outline view-details">View Details</button>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/project2.svg" alt="Cloud Migration Strategy">
+                        </div>
+                        <div class="project-content">
+                            <h3>Legacy System Cloud Migration</h3>
+                            <p class="project-category">Architecture & Strategy</p>
+                            <p>Led the migration of a monolithic legacy system to a cloud-native architecture.</p>
+                            <div class="project-tech">
+                                <span>AWS</span>
+                                <span>Terraform</span>
+                                <span>Containerization</span>
+                                <span>CI/CD</span>
+                            </div>
+                            <div class="project-outcomes">
+                                <h4>Business Outcomes:</h4>
+                                <ul>
+                                    <li>40% reduction in operational costs</li>
+                                    <li>75% faster deployment cycles</li>
+                                    <li>Improved scalability during demand spikes</li>
+                                </ul>
+                            </div>
+                            <button class="btn btn-outline view-details">View Details</button>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/project3.svg" alt="AI Recommendation Engine">
+                        </div>
+                        <div class="project-content">
+                            <h3>AI-Powered Recommendation Engine</h3>
+                            <p class="project-category">Architecture & Data Science</p>
+                            <p>Designed and implemented a real-time recommendation system for personalized shopping experiences.</p>
+                            <div class="project-tech">
+                                <span>Machine Learning</span>
+                                <span>Python</span>
+                                <span>Kafka</span>
+                                <span>Redis</span>
+                            </div>
+                            <div class="project-outcomes">
+                                <h4>Business Outcomes:</h4>
+                                <ul>
+                                    <li>25% increase in average order value</li>
+                                    <li>15% improvement in customer retention</li>
+                                    <li>Real-time personalization at scale</li>
+                                </ul>
+                            </div>
+                            <button class="btn btn-outline view-details">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="section">
+            <div class="container">
+                <h2 class="section-title">Certifications & Education</h2>
+                <div class="certifications-grid">
+                    <div class="cert-card">
+                        <div class="cert-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h3>Certified Enterprise Architect</h3>
+                            <p class="cert-issuer">The Open Group</p>
+                            <p>TOGAF® Certification with focus on digital transformation and cloud architectures</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-card">
+                        <div class="cert-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h3>AWS Certified Solutions Architect</h3>
+                            <p class="cert-issuer">Amazon Web Services</p>
+                            <p>Professional level certification for designing distributed systems on AWS</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-card">
+                        <div class="cert-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h3>MSc in Telecommunications</h3>
+                            <p class="cert-issuer">Technical University</p>
+                            <p>Specialized in network security and cryptography</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talks Section -->
+        <section id="talks" class="section">
+            <div class="container">
+                <h2 class="section-title">Talks & Industry Involvement</h2>
+                <div class="talks-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Scaling E-commerce for Peak Season</h3>
+                            <p class="timeline-date">E-commerce Tech Conference, 2023</p>
+                            <p>Presented strategies for handling 10x traffic spikes during holiday seasons while maintaining performance and reliability.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Architecture Leadership Panel</h3>
+                            <p class="timeline-date">CTO Summit, 2022</p>
+                            <p>Participated in a panel discussion on evolving the role of enterprise architects in digital transformation initiatives.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Mentorship Program Lead</h3>
+                            <p class="timeline-date">2020 - Present</p>
+                            <p>Leading a mentorship program for junior architects, focusing on system design principles and architectural thinking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Let's Connect</h3>
+                        <p>Interested in discussing architecture challenges, e-commerce solutions, or potential collaborations? Reach out through the form or connect with me on professional networks.</p>
+                        <div class="social-links">
+                            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Enterprise Architect Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+</body>
+</html>

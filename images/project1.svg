@@ -1,0 +1,49 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="400" y="50" font-family="Arial" font-size="24" text-anchor="middle" fill="#0056b3">E-commerce Platform Architecture</text>
+  
+  <!-- Architecture Diagram -->
+  <!-- Cloud -->
+  <ellipse cx="400" cy="150" rx="150" ry="60" fill="#e6f7ff" stroke="#0056b3" stroke-width="2"/>
+  <text x="400" y="155" font-family="Arial" font-size="18" text-anchor="middle" fill="#0056b3">Cloud Infrastructure</text>
+  
+  <!-- Microservices -->
+  <rect x="150" y="250" width="120" height="60" rx="10" fill="#e6f7ff" stroke="#0056b3" stroke-width="2"/>
+  <text x="210" y="285" font-family="Arial" font-size="14" text-anchor="middle" fill="#0056b3">User Service</text>
+  
+  <rect x="340" y="250" width="120" height="60" rx="10" fill="#e6f7ff" stroke="#0056b3" stroke-width="2"/>
+  <text x="400" y="285" font-family="Arial" font-size="14" text-anchor="middle" fill="#0056b3">Product Service</text>
+  
+  <rect x="530" y="250" width="120" height="60" rx="10" fill="#e6f7ff" stroke="#0056b3" stroke-width="2"/>
+  <text x="590" y="285" font-family="Arial" font-size="14" text-anchor="middle" fill="#0056b3">Order Service</text>
+  
+  <!-- Database -->
+  <rect x="150" y="400" width="120" height="60" rx="10" fill="#e6f7ff" stroke="#0056b3" stroke-width="2"/>
+  <text x="210" y="435" font-family="Arial" font-size="14" text-anchor="middle" fill="#0056b3">User DB</text>
+  
+  <rect x="340" y="400" width="120" height="60" rx="10" fill="#e6f7ff" stroke="#0056b3" stroke-width="2"/>
+  <text x="400" y="435" font-family="Arial" font-size="14" text-anchor="middle" fill="#0056b3">Product DB</text>
+  
+  <rect x="530" y="400" width="120" height="60" rx="10" fill="#e6f7ff" stroke="#0056b3" stroke-width="2"/>
+  <text x="590" y="435" font-family="Arial" font-size="14" text-anchor="middle" fill="#0056b3">Order DB</text>
+  
+  <!-- Connection Lines -->
+  <line x1="210" y1="310" x2="210" y2="400" stroke="#0056b3" stroke-width="2"/>
+  <line x1="400" y1="310" x2="400" y2="400" stroke="#0056b3" stroke-width="2"/>
+  <line x1="590" y1="310" x2="590" y2="400" stroke="#0056b3" stroke-width="2"/>
+  
+  <line x1="400" y1="210" x2="210" y2="250" stroke="#0056b3" stroke-width="2"/>
+  <line x1="400" y1="210" x2="400" y2="250" stroke="#0056b3" stroke-width="2"/>
+  <line x1="400" y1="210" x2="590" y2="250" stroke="#0056b3" stroke-width="2"/>
+  
+  <!-- API Gateway -->
+  <rect x="340" y="500" width="120" height="60" rx="10" fill="#e6f7ff" stroke="#0056b3" stroke-width="2"/>
+  <text x="400" y="535" font-family="Arial" font-size="14" text-anchor="middle" fill="#0056b3">API Gateway</text>
+  
+  <line x1="210" y1="460" x2="400" y2="500" stroke="#0056b3" stroke-width="2"/>
+  <line x1="400" y1="460" x2="400" y2="500" stroke="#0056b3" stroke-width="2"/>
+  <line x1="590" y1="460" x2="400" y2="500" stroke="#0056b3" stroke-width="2"/>
+</svg>
