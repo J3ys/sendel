@@ -1,0 +1,20 @@
+<svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1"></stop>
+            <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1"></stop>
+        </linearGradient>
+    </defs>
+
+    <!-- Logo icon/symbol -->
+    <g transform="translate(10, 10)">
+        <!-- Abstract "S" shape with modern twist -->
+        <path d="M20 5 C25 5, 30 8, 30 15 C30 22, 25 25, 20 25 C15 25, 10 28, 10 35 C10 42, 15 45, 20 45" stroke="url(#logoGradient)" stroke-width="3" fill="none" stroke-linecap="round"></path>
+
+        <!-- Accent dot -->
+        <circle cx="25" cy="15" r="2" fill="url(#logoGradient)"></circle>
+    </g>
+
+    <!-- Company name -->
+    <text x="55" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#1f2937" letter-spacing="-0.5px">Sendel</text>
+</svg>
