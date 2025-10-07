@@ -330,6 +330,14 @@ nav {
 .project-card:hover .project-image img {
     transform: scale(1.05);
 }
+/* Ensure inline SVGs scale nicely in project image area */
+.project-image svg {
+    width: 100%;
+    height: 100%;
+}
+.project-card:hover .project-image svg {
+    transform: scale(1.05);
+}
 
 .project-content {
     padding: 20px;
@@ -773,4 +781,137 @@ footer {
         width: 80%;
         margin: 10px auto;
     }
+}
+
+/* Accessibility improvements for Just Search hero */
+.hero .section-title {
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+.hero .section-title::after {
+    background-color: rgba(255,255,255,0.7);
+}
+.hero .subtitle {
+    color: #eaf2ff;
+    font-size: 1.1rem;
+    margin: 0 auto 20px;
+    max-width: 900px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+/* Define button variants used by Just Search pages */
+.btn.primary {
+    background-color: #ffffff;
+    color: #00325f;
+    border: 2px solid rgba(255,255,255,0.85);
+}
+.btn.primary:hover {
+    background-color: #f4f6f8;
+    color: #002544;
+    border-color: #ffffff;
+}
+/* Secondary/ghost button on dark hero */
+.hero .btn {
+    color: #ffffff;
+    border: 2px solid rgba(255,255,255,0.6);
+    background: transparent;
+}
+.hero .btn:not(.primary):hover {
+    background: rgba(255,255,255,0.12);
+    border-color: #ffffff;
+}
+
+/* Just Search hero app icon */
+.hero .app-icon {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+.hero .app-icon svg {
+    width: 96px;
+    height: 96px;
+}
+@media (max-width: 768px) {
+    .hero .app-icon svg {
+        width: 72px;
+        height: 72px;
+    }
+}
+
+
+/* Promo Banners for Just Search */
+.banners .banner {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 20px var(--shadow-color);
+    background: var(--card-bg-color);
+    padding: 16px;
+}
+.banners .banner.reverse {
+    flex-direction: row-reverse;
+}
+.banners .banner-image {
+    width: 50%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+/* Remove any darkening overlays */
+.banners .banner::after { display: none !important; }
+
+.banners .banner-content {
+    position: static;
+    width: 50%;
+    padding: 8px 8px 8px 8px;
+    color: var(--text-color);
+    text-shadow: none;
+}
+.banners .banner-content h2 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 6px;
+    color: var(--primary-color);
+}
+.banners .banner-content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    opacity: 0.95;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+.banners .banner-content p {
+    font-size: 1rem;
+    max-width: 600px;
+}
+@media (max-width: 992px) {
+    .banners .banner { gap: 16px; }
+    .banners .banner-image, .banners .banner-content { width: 50%; }
+}
+@media (max-width: 768px) {
+    .banners .banner {
+        flex-direction: column;
+        padding: 12px;
+    }
+    .banners .banner-image, .banners .banner-content {
+        width: 100%;
+    }
+    .banners .banner-content h2 { font-size: 1.4rem; }
+    .banners .banner-content h3 { font-size: 1.05rem; }
+    .banners .banner-content p { font-size: 0.95rem; }
+}
+
+/* Header logo app icon badge */
+.logo .app-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+.logo .app-badge svg {
+    width: 20px;
+    height: 20px;
 }
