@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Blame for Confluence</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0747A6;
+            --medium-blue: #0052CC;
+            --bright-blue: #0065FF;
+            --light-blue: #4C9AFF;
+            --pale-blue: #B3D4FF;
+            --dark-bg: #172B4D;
+            --text-dark: #172B4D;
+            --text-light: #fff;
+            --bg-light: #F4F5F7;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary-blue);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .app-badge {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .app-badge svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--medium-blue) 100%);
+            color: var(--text-light);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .app-icon svg {
+            width: 80px;
+            height: 80px;
+            fill: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn.primary {
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        .btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .btn:not(.primary) {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:not(.primary):hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--primary-blue);
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-container p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .content-container ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-container li {
+            font-size: 1.2rem;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .content-container li:last-child {
+            border-bottom: none;
+        }
+
+        .content-container strong {
+            color: var(--primary-blue);
+        }
+
+        /* Banners */
+        .banners {
+            background: white;
+        }
+
+        .banner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+            padding: 40px;
+            border-radius: 16px;
+            background: var(--bg-light);
+        }
+
+        .banner.reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .banner.reverse .banner-image {
+            order: 2;
+        }
+
+        .banner.reverse .banner-content {
+            order: 1;
+        }
+
+        .banner-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .banner-content h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .banner-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--medium-blue);
+        }
+
+        .banner-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .banner {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .banner.reverse .banner-image {
+                order: 1;
+            }
+
+            .banner.reverse .banner-content {
+                order: 2;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <span class="app-badge" aria-hidden="true">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="60" y="40" width="80" height="100" rx="4" fill="currentColor"/>
+                        <rect x="65" y="45" width="70" height="90" rx="2" fill="white"/>
+                        <rect x="75" y="60" width="50" height="4" rx="2" fill="#4C9AFF"/>
+                        <rect x="75" y="72" width="45" height="4" rx="2" fill="#0747A6"/>
+                        <rect x="75" y="84" width="50" height="4" rx="2" fill="#B3D4FF"/>
+                        <rect x="75" y="96" width="40" height="4" rx="2" fill="#0065FF"/>
+                        <rect x="75" y="108" width="48" height="4" rx="2" fill="#0052CC"/>
+                        <circle cx="130" cy="120" r="20" fill="currentColor" opacity="0.9"/>
+                        <circle cx="130" cy="120" r="14" fill="white"/>
+                        <line x1="144" y1="134" x2="160" y2="150" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+                        <circle cx="82" cy="58" r="3" fill="#4C9AFF"/>
+                        <circle cx="82" cy="70" r="3" fill="#0747A6"/>
+                        <circle cx="82" cy="82" r="3" fill="#B3D4FF"/>
+                        <circle cx="82" cy="94" r="3" fill="#0065FF"/>
+                        <circle cx="82" cy="106" r="3" fill="#0052CC"/>
+                    </svg>
+                </span>
+                <span>Just Blame</span>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero -->
+    <section class="section hero">
+        <div class="container">
+            <div class="app-icon" aria-hidden="true">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="60" y="40" width="80" height="100" rx="4" fill="white"/>
+                    <rect x="65" y="45" width="70" height="90" rx="2" fill="currentColor"/>
+                    <rect x="75" y="60" width="50" height="4" rx="2" fill="white"/>
+                    <rect x="75" y="72" width="45" height="4" rx="2" fill="white"/>
+                    <rect x="75" y="84" width="50" height="4" rx="2" fill="white"/>
+                    <rect x="75" y="96" width="40" height="4" rx="2" fill="white"/>
+                    <rect x="75" y="108" width="48" height="4" rx="2" fill="white"/>
+                    <circle cx="130" cy="120" r="20" fill="white" opacity="0.9"/>
+                    <circle cx="130" cy="120" r="14" fill="currentColor"/>
+                    <line x1="144" y1="134" x2="160" y2="150" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h1>Know Who Wrote What, Instantly</h1>
+            <p class="subtitle">Track page authorship inline in Confluence. See who created each section without digging through history.</p>
+            <div class="cta-buttons">
+                <a class="btn primary" href="https://marketplace.atlassian.com/apps/just-blame" target="_blank" rel="noopener noreferrer">Install on Atlassian Marketplace</a>
+                <a class="btn" href="#features">Explore Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banners -->
+    <section id="promos" class="section banners">
+        <div class="container">
+            <div class="banner">
+                <img src="../images/bannerB1.png" alt="Just Blame inline attribution interface" class="banner-image">
+                <div class="banner-content">
+                    <h2>See Who Wrote What at a Glance</h2>
+                    <p>Click the Just Blame button and instantly see color-coded author attribution for every paragraph, table, and heading. No more clicking through version history—everything you need is right on the page.</p>
+                </div>
+            </div>
+
+            <div class="banner reverse">
+                <img src="../images/bannerB2.png" alt="Just Blame detailed authorship view" class="banner-image">
+                <div class="banner-content">
+                    <h2>Detailed Attribution When You Need It</h2>
+                    <h3>Hover for Instant Information</h3>
+                    <p>Hover over any section to see the author name, timestamp, and version details. Click for full attribution history including all contributors and exact edit times.</p>
+                </div>
+            </div>
+
+            <div class="banner">
+                <img src="../images/bannerB3.png" alt="Just Blame transparency and control" class="banner-image">
+                <div class="banner-content">
+                    <h2>Transparency Meets Productivity</h2>
+                    <h3>Like Git Blame for Your Wiki</h3>
+                    <p>Bring developer-style transparency to Confluence. Perfect for compliance teams, documentation managers, and anyone who values accountability. One-click activation, zero configuration required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section id="problem" class="section">
+        <div class="container">
+            <h2 class="section-title">The Problem</h2>
+            <div class="content-container">
+                <p>Finding out who wrote a specific section in Confluence is tedious. You have to open page history, click through multiple versions, and manually compare changes. It wastes time and makes accountability difficult.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section id="solution" class="section">
+        <div class="container">
+            <h2 class="section-title">The Solution — Just Blame</h2>
+            <div class="content-container">
+                <p>Just Blame adds inline author attribution to every Confluence page. Click one button and see who wrote what, highlighted with color-coded sections. Get answers in seconds, not minutes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Capabilities -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <div class="content-container">
+                <ul>
+                    <li><strong>Inline Attribution:</strong> See author names and timestamps directly on the page content.</li>
+                    <li><strong>Color-Coded Visualization:</strong> Different colors for different contributors make scanning easy.</li>
+                    <li><strong>Granular Tracking:</strong> Track authorship at paragraph, table, heading, or section level.</li>
+                    <li><strong>One-Click Activation:</strong> Toggle blame view on and off instantly.</li>
+                    <li><strong>Timeline View:</strong> Understand how your page evolved over time.</li>
+                    <li><strong>Zero Configuration:</strong> Works immediately after installation.</li>
+                    <li><strong>Permission Aware:</strong> Respects all Confluence security settings.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audience -->
+    <section id="audience" class="section">
+        <div class="container">
+            <h2 class="section-title">Who It's For</h2>
+            <div class="content-container">
+                <ul>
+                    <li>Compliance teams who need to track who created or modified content.</li>
+                    <li>Documentation managers who maintain accountability across large teams.</li>
+                    <li>Content teams who need to find subject matter experts quickly.</li>
+                    <li>Project managers who want to recognize team contributions fairly.</li>
+                    <li>New team members looking to identify knowledge owners.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose -->
+    <section id="why" class="section">
+        <div class="container">
+            <h2 class="section-title">Why Teams Choose Just Blame</h2>
+            <div class="content-container">
+                <ul>
+                    <li>Save hours every week by eliminating manual version comparisons.</li>
+                    <li>Improve accountability with transparent content ownership.</li>
+                    <li>Accelerate onboarding by helping new members find experts.</li>
+                    <li>Simplify compliance with instant audit trails.</li>
+                    <li>Recognize contributions fairly with clear attribution.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Just Blame for Confluence. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="faq.html">FAQ</a>
+            <a href="https://marketplace.atlassian.com/vendors/184053199/sendel" target="_blank" rel="noopener noreferrer">Vendor</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
