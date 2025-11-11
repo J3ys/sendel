@@ -3,132 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ | Just Blame for Atlassian</title>
+    <title>FAQ | Just Blame for Confluence</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="../js/script.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo"><span class="app-badge" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14Z" fill="currentColor"/><circle cx="9.5" cy="9.5" r="4.5" fill="#ffffff"/><path d="M9.5 7C8.67 7 8 7.67 8 8.5C8 9.33 8.67 10 9.5 10C10.33 10 11 9.33 11 8.5C11 7.67 10.33 7 9.5 7Z" fill="currentColor"/><path d="M7.5 10C7.22 10 7 10.22 7 10.5C7 10.78 7.22 11 7.5 11C7.78 11 8 10.78 8 10.5C8 10.22 7.78 10 7.5 10Z" fill="currentColor"/><path d="M11.5 10C11.22 10 11 10.22 11 10.5C11 10.78 11.22 11 11.5 11C11.78 11 12 10.78 12 10.5C12 10.22 11.78 10 11.5 10Z" fill="currentColor"/><path d="M8.5 12C8.22 12 8 12.22 8 12.5C8 12.78 8.22 13 8.5 13C8.78 13 9 12.78 9 12.5C9 12.22 8.78 12 8.5 12Z" fill="currentColor"/><path d="M10.5 12C10.22 12 10 12.22 10 12.5C10 12.78 10.22 13 10.5 13C10.78 13 11 12.78 11 12.5C11 12.22 10.78 12 10.5 12Z" fill="currentColor"/><path d="M9.5 10L7.5 10.5" stroke="currentColor" stroke-width="0.5"/><path d="M9.5 10L11.5 10.5" stroke="currentColor" stroke-width="0.5"/><path d="M8.5 12.5L7.5 11" stroke="currentColor" stroke-width="0.5"/><path d="M10.5 12.5L11.5 11" stroke="currentColor" stroke-width="0.5"/><path d="M9.5 10L8.5 12.5" stroke="currentColor" stroke-width="0.5"/><path d="M9.5 10L10.5 12.5" stroke="currentColor" stroke-width="0.5"/></svg></span><span>Just Blame</span></div>
-                <ul class="nav-links">
-                    <li><a href="../index.html">Home</a></li>
-                </ul>
-                <button id="theme-toggle" aria-label="Toggle dark/light mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <div class="content-container">
-                    <div class="instructions">
-                        <h3>How to Use Just Blame</h3>
-                        <ol>
-                            <li>
-                                <strong>Initial Setup</strong>
-                                <p>After installing the app from the Atlassian Marketplace, navigate to the app settings page to configure your AI provider and set your API key.</p>
-                            </li>
-                            <li>
-                                <strong>Configure Search Parameters</strong>
-                                <p>In the settings, you can specify the number of Jira issues and Confluence pages to be analyzed when answering your queries.</p>
-                            </li>
-                            <li>
-                                <strong>Perform Searches</strong>
-                                <p>Use natural language to search across your Jira issues and Confluence pages. The app will analyze the content using your selected AI model.</p>
-                            </li>
-                            <li>
-                                <strong>Review Results</strong>
-                                <p>The app will provide AI-generated insights and summaries based on your Jira and Confluence content, processed in real-time.</p>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <div class="faq">
-                        <h3>Frequently Asked Questions</h3>
-
-                        <div class="faq-item">
-                            <h4>What does Just Blame do?</h4>
-                            <p>Just Blame is an Atlassian Marketplace app that performs Jira and Confluence search using your selected AI model. It enables you to search, summarize, and generate insights from your Jira issues and Confluence content using natural language queries.</p>
-                        </div>
-
-                        <div class="faq-item">
-                            <h4>Which AI models can I use with Just Blame?</h4>
-                            <p>You can connect to various AI providers of your choice, including OpenAI, Azure OpenAI, Google Gemini, Claude, and others. You have full control over which AI model processes your data by selecting your preferred provider in the app settings.</p>
-                        </div>
-
-                        <div class="faq-item">
-                            <h4>Does Just Blame store my Jira or Confluence data?</h4>
-                            <p>No. Just Blame does not store any of your Jira or Confluence data. All processing happens in real-time, and data is immediately discarded after use. The app operates with a strict no-data-retention policy.</p>
-                        </div>
-
-                        <div class="faq-item">
-                            <h4>How does Just Blame protect my data privacy?</h4>
-                            <p>Just Blame gives you full control of your data by allowing you to select which AI model processes it. Your API credentials are stored locally on your infrastructure—we never access or store them. No data is used to train any AI models.</p>
-                        </div>
-
-                        <div class="faq-item">
-                            <h4>What do I need to set up to use Just Blame?</h4>
-                            <p>To use Just Blame, you need to provide your own API key for your chosen AI provider in the app settings page. You'll also need to configure the number of Jira issues and Confluence pages to be analyzed when answering queries.</p>
-                        </div>
-
-                        <div class="faq-item">
-                            <h4>Can I control how much content is analyzed?</h4>
-                            <p>Yes. In the app settings, you can specify the maximum number of Jira issues and Confluence pages to be analyzed when processing your queries. This allows you to balance between comprehensive results and processing speed.</p>
-                        </div>
-
-                        <div class="faq-item">
-                            <h4>Is my data used to train AI models?</h4>
-                            <p>No. Your data is not used to train any AI models. Just Blame processes your content in real-time using your selected AI provider, and no data is retained or used for training purposes.</p>
-                        </div>
-                    </div>
-
-                    <div class="troubleshooting">
-                        <h3>Troubleshooting</h3>
-
-                        <div class="faq-item">
-                            <h4>I'm getting API key errors</h4>
-                            <p>Verify that you've entered a valid API key for your selected AI provider in the app settings. Make sure your API key has not expired and has sufficient credits/quota remaining.</p>
-                        </div>
-
-                        <div class="faq-item">
-                            <h4>Search results are incomplete</h4>
-                            <p>Check your settings for the number of Jira issues and Confluence pages to analyze. If set too low, you might not get comprehensive results. Try increasing these values for more thorough analysis.</p>
-                        </div>
-
-                        <div class="faq-item">
-                            <h4>The app is responding slowly</h4>
-                            <p>Response time depends on several factors: the amount of content being analyzed, the complexity of your query, and the response time of your selected AI provider. Try reducing the number of pages/issues to analyze or optimizing your queries.</p>
-                        </div>
-                    </div>
-
-                    <p class="last-updated">Last updated: July 2025</p>
-                </div>
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                    <span class="app-badge" aria-hidden="true">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="60" y="40" width="80" height="100" rx="4" fill="currentColor"/>
+                            <rect x="65" y="45" width="70" height="90" rx="2" fill="white"/>
+                            <rect x="75" y="60" width="50" height="4" rx="2" fill="#4C9AFF"/>
+                            <rect x="75" y="72" width="45" height="4" rx="2" fill="#0747A6"/>
+                            <rect x="75" y="84" width="50" height="4" rx="2" fill="#B3D4FF"/>
+                            <rect x="75" y="96" width="40" height="4" rx="2" fill="#0065FF"/>
+                            <rect x="75" y="108" width="48" height="4" rx="2" fill="#0052CC"/>
+                            <circle cx="130" cy="120" r="20" fill="currentColor" opacity="0.9"/>
+                            <circle cx="130" cy="120" r="14" fill="white"/>
+                            <line x1="144" y1="134" x2="160" y2="150" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                <span>Just Blame</span>
             </div>
-        </section>
-    </main>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+            <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </div>
+</header>
 
-    <footer>
+<main>
+    <section class="section">
         <div class="container">
-            <p>&copy; 2025 Just Blame for Atlassian. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="../index.html">Home</a>
-                <a href="terms.html">Terms</a>
-                <a href="privacy.html">Privacy</a>
-                <a href="faq.html">FAQ</a>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="content-container">
+                <div class="instructions">
+                    <h3>How to Use Just Blame</h3>
+                    <ol>
+                        <li>
+                            <strong>Install the App</strong>
+                            <p>Install Just Blame from the Atlassian Marketplace. No configuration required—it works immediately after installation.</p>
+                        </li>
+                        <li>
+                            <strong>Open Any Confluence Page / Jira Issue</strong>
+                            <p>Navigate to any Confluence page / Jira Issue you want to analyze. Just Blame works with all existing pages and respects your permission settings.</p>
+                        </li>
+                        <li>
+                            <strong>Activate Blame View</strong>
+                            <p>Click the "Blame" button in the Confluence actions toolbar(...) under Apps section. The page will display with color-coded sections showing authorship.</p>
+                        </li>
+                        <li>
+                            <strong>Explore Authorship Details</strong>
+                            <p>Click any section to see who wrote it and when.</p>
+                        </li>
+                        <li>
+                            <strong>Toggle Views</strong>
+                            <p>Switch between "block" and "inline" views, or turn off blame view to return to normal page display.</p>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="faq">
+                    <h3>General Questions</h3>
+
+                    <div class="faq-item">
+                        <h4>What does Just Blame do?</h4>
+                        <p>Just Blame adds inline author attribution to Confluence pages or Jira Issue. It shows you who wrote each section of a page without having to click through version history. Like "git blame" for developers, but for your Confluence wiki and issues.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>How does Just Blame work?</h4>
+                        <p>Just Blame analyzes history and displays color-coded sections showing who created each paragraph, table, heading, or section. Each author gets a unique color, making it easy to see contributions at a glance.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Do I need to configure anything?</h4>
+                        <p>No. Just Blame works immediately after installation. There's no setup, no API keys, and no configuration required. Just install and start using it.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Does it work with existing pages?</h4>
+                        <p>Yes! Just Blame works with all your existing Confluence pages. It uses the built-in page history, so it can show authorship for pages created before you installed the app.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>What does "block" vs "inline" view mean?</h4>
+                        <p>Block view shows the version history sidebar with a list of all contributors and timestamps. Inline view displays the authorship information directly within the content flow. You can toggle between both views.</p>
+                    </div>
+                </div>
+
+                <div class="faq">
+                    <h3>Features & Functionality</h3>
+
+                    <div class="faq-item">
+                        <h4>Can I see who wrote a specific paragraph?</h4>
+                        <p>Yes! Click any paragraph, table, heading, or section to see the author name and timestamp.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Does it show edit history or just the original author?</h4>
+                        <p>Just Blame shows the original author of each section by default.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>How far back does the history go?</h4>
+                        <p>Just Blame uses Confluence's native version history, so it goes back as far as your page history exists. There's no limit on how old the content can be.</p>
+                    </div>
+                </div>
+
+                <div class="faq">
+                    <h3>Privacy & Security</h3>
+
+                    <div class="faq-item">
+                        <h4>Does Just Blame respect Confluence permissions?</h4>
+                        <p>Yes. Users only see authorship information for pages they already have access to. Just Blame respects all Confluence security settings and permissions.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Is any data sent outside of Confluence?</h4>
+                        <p>No. All processing happens within your Confluence instance using standard Atlassian APIs. No data is transmitted to external servers.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Can I hide authorship information from certain users?</h4>
+                        <p>Authorship visibility follows Confluence page permissions. If a user can view a page, they can see its authorship information. This ensures transparency and accountability.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Does it track anonymous edits?</h4>
+                        <p>Just Blame displays whatever user information is recorded in Confluence's version history. If edits were made anonymously or by deleted users, this will be indicated.</p>
+                    </div>
+                </div>
+
+                <div class="faq">
+                    <h3>Performance & Compatibility</h3>
+
+                    <div class="faq-item">
+                        <h4>Does it slow down my pages?</h4>
+                        <p>No. Just Blame is lightweight and only processes data when you activate it. Your normal Confluence browsing experience is unaffected.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Will it work on large pages with lots of history?</h4>
+                        <p>Yes. Just Blame is optimized to handle pages with extensive edit history. Loading times may vary based on page complexity, but performance remains smooth.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Is it available for Confluence Data Center?</h4>
+                        <p>Currently, Just Blame is available for Confluence Cloud. Data Center support is on our roadmap. Contact us if you're interested in Data Center availability.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Does it work on mobile devices?</h4>
+                        <p>Just Blame is optimized for desktop use where detailed version history is most useful. Mobile support is limited but functional for basic viewing.</p>
+                    </div>
+                </div>
+
+
+                <div class="faq">
+                    <h3>Use Cases & Best Practices</h3>
+
+                    <div class="faq-item">
+                        <h4>How do compliance teams use Just Blame?</h4>
+                        <p>Compliance teams use Just Blame to quickly audit who created or modified sensitive documentation. </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>How does it help with onboarding?</h4>
+                        <p>New team members can use Just Blame to identify subject matter experts. Instead of asking "who knows about this?", they can see immediately who wrote each section and reach out directly.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Can I use it for content reviews?</h4>
+                        <p>Yes! Content reviewers use Just Blame to understand who wrote what before making editorial changes. This helps maintain consistency with the original author's intent and makes it easier to discuss changes.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>How do documentation teams benefit?</h4>
+                        <p>Documentation teams use Just Blame to maintain clear ownership of content sections. When updates are needed, they know exactly who to consult without searching through history or asking the whole team.</p>
+                    </div>
+                </div>
+
+                <p class="last-updated">Last updated: November 2025</p>
             </div>
         </div>
-    </footer>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Just Blame for Confluence. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
