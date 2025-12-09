@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - JustVision</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: #ffffff;
+        }
+        
+        .nav {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text-just {
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-text-vision {
+            color: #1a202c;
+        }
+        
+        .hero {
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #f0fdf4 100%);
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero p {
+            color: #64748b;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .content h2 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+        
+        .content h3 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: #1e40af;
+        }
+        
+        .content p {
+            margin-bottom: 1rem;
+            color: #475569;
+            line-height: 1.8;
+        }
+        
+        .content ul, .content ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+            color: #475569;
+        }
+        
+        .content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            background: #1a202c;
+            color: #94a3b8;
+            padding: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100">
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <line x1="50" y1="20" x2="30" y2="70" stroke="url(#logo-grad)" stroke-width="5" opacity="0.3"/>
+                    <line x1="50" y1="20" x2="70" y2="70" stroke="url(#logo-grad)" stroke-width="5" opacity="0.3"/>
+                    <line x1="30" y1="70" x2="70" y2="70" stroke="url(#logo-grad)" stroke-width="5" opacity="0.3"/>
+                    <circle cx="50" cy="20" r="16" fill="url(#logo-grad)"/>
+                    <circle cx="30" cy="70" r="16" fill="url(#logo-grad)"/>
+                    <circle cx="70" cy="70" r="16" fill="url(#logo-grad)"/>
+                </svg>
+                <div>
+                    <span class="logo-text-just">Just</span><span class="logo-text-vision">Vision</span>
+                </div>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Terms & Conditions</h1>
+        <p>Last updated: December 9, 2024</p>
+    </section>
+
+    <!-- Content -->
+    <div class="content">
+        <p>These Terms and Conditions ("Terms") govern your use of JustVision ("the App"), an Atlassian Marketplace application for Confluence and Jira. By installing or using JustVision, you agree to be bound by these Terms.</p>
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing or using JustVision, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, you may not use the App.</p>
+
+        <h2>2. Description of Service</h2>
+        <p>JustVision is an AI-powered diagramming tool that integrates with Atlassian Confluence and Jira. The App enables users to create diagrams and visual content using natural language descriptions processed through artificial intelligence.</p>
+
+        <h3>2.1 Third-Party AI Services</h3>
+        <p>JustVision requires integration with third-party AI services (currently Anthropic Claude, with future support for additional providers). You must:</p>
+        <ul>
+            <li>Obtain and maintain your own API key from the AI service provider</li>
+            <li>Comply with the AI provider's terms of service and acceptable use policies</li>
+            <li>Be responsible for all costs associated with AI API usage</li>
+            <li>Understand that your data will be processed by the third-party AI service according to their privacy policy</li>
+        </ul>
+
+        <h2>3. License and Access</h2>
+        
+        <h3>3.1 License Grant</h3>
+        <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to use JustVision solely for your internal business purposes during your subscription period.</p>
+
+        <h3>3.2 License Restrictions</h3>
+        <p>You may not:</p>
+        <ul>
+            <li>Copy, modify, or create derivative works of the App</li>
+            <li>Reverse engineer, decompile, or disassemble the App</li>
+            <li>Rent, lease, lend, sell, or sublicense the App</li>
+            <li>Use the App for any unlawful purpose</li>
+            <li>Remove or modify any proprietary notices</li>
+            <li>Use the App to compete with us or develop a competing product</li>
+        </ul>
+
+        <h2>4. User Accounts and API Keys</h2>
+        
+        <h3>4.1 Account Responsibility</h3>
+        <p>You are responsible for:</p>
+        <ul>
+            <li>Maintaining the confidentiality of your Anthropic API key</li>
+            <li>All activities that occur under your account</li>
+            <li>Ensuring your API key is not shared with unauthorized users</li>
+            <li>Immediately notifying us of any unauthorized use of your account</li>
+        </ul>
+
+        <h3>4.2 API Key Security</h3>
+        <p>Your API key is stored encrypted in your Confluence/Jira instance. We never store or have access to your API keys on our servers. You are solely responsible for monitoring and managing your API usage and associated costs with Anthropic or other AI providers.</p>
+
+        <h2>5. Payment and Billing</h2>
+        
+        <h3>5.1 Subscription Fees</h3>
+        <p>JustVision operates on a subscription basis. Fees are charged per user per month as specified on the Atlassian Marketplace. All fees are non-refundable except as required by law or as expressly stated in these Terms.</p>
+
+        <h3>5.2 AI API Costs</h3>
+        <p>You are separately responsible for all costs incurred through your use of third-party AI services (Anthropic, etc.). These costs are billed directly by the AI provider and are not included in your JustVision subscription.</p>
+
+        <h3>5.3 Free Trial</h3>
+        <p>We offer a 30-day free trial. No credit card is required for the trial. The trial includes full access to all features. After the trial period, you must subscribe to continue using the App.</p>
+
+        <h3>5.4 Cancellation</h3>
+        <p>You may cancel your subscription at any time. Cancellation will be effective at the end of your current billing period. No refunds will be provided for partial months.</p>
+
+        <h2>6. Acceptable Use</h2>
+        
+        <p>You agree not to use JustVision to:</p>
+        <ul>
+            <li>Generate content that is illegal, harmful, threatening, abusive, harassing, defamatory, or otherwise objectionable</li>
+            <li>Violate any applicable laws or regulations</li>
+            <li>Infringe upon intellectual property rights of others</li>
+            <li>Transmit malware, viruses, or other malicious code</li>
+            <li>Attempt to gain unauthorized access to our systems or other users' accounts</li>
+            <li>Use the App in any way that could damage, disable, overburden, or impair our services</li>
+            <li>Generate spam or bulk unsolicited communications</li>
+        </ul>
+
+        <h2>7. Intellectual Property</h2>
+        
+        <h3>7.1 Our IP</h3>
+        <p>JustVision and all related technology, software, and documentation are protected by intellectual property laws. We retain all rights, title, and interest in and to the App.</p>
+
+        <h3>7.2 Your Content</h3>
+        <p>You retain all rights to the diagrams and content you create using JustVision. By using the App, you grant us a limited license to process your content solely for the purpose of providing the service.</p>
+
+        <h3>7.3 AI-Generated Content</h3>
+        <p>Content generated by AI through JustVision is provided "as is." While you have the right to use AI-generated content, you acknowledge that similar content may be generated for other users and that AI outputs may not be entirely unique.</p>
+
+        <h2>8. Privacy and Data Protection</h2>
+        
+        <p>Your use of JustVision is also governed by our Privacy Policy. Key points:</p>
+        <ul>
+            <li>We do not store your diagrams or descriptions on our servers</li>
+            <li>Your content is sent directly to the AI provider using your API key</li>
+            <li>We collect minimal usage analytics to improve the service</li>
+            <li>We comply with GDPR, CCPA, and other applicable data protection laws</li>
+        </ul>
+
+        <h2>9. Third-Party Services</h2>
+        
+        <p>JustVision integrates with:</p>
+        <ul>
+            <li><strong>Atlassian Confluence and Jira:</strong> Subject to Atlassian's Terms of Service</li>
+            <li><strong>Anthropic Claude:</strong> Subject to Anthropic's Terms of Service and Acceptable Use Policy</li>
+            <li><strong>Future AI Providers:</strong> Additional providers will have their own terms</li>
+        </ul>
+        
+        <p>We are not responsible for the availability, content, or practices of third-party services. Your use of third-party services is at your own risk.</p>
+
+        <h2>10. Warranties and Disclaimers</h2>
+        
+        <h3>10.1 Limited Warranty</h3>
+        <p>We warrant that JustVision will perform substantially in accordance with our documentation during your subscription period.</p>
+
+        <h3>10.2 Disclaimer</h3>
+        <p>EXCEPT AS EXPRESSLY SET OUT IN THESE TERMS, THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:</p>
+        <ul>
+            <li>Warranties of merchantability or fitness for a particular purpose</li>
+            <li>Non-infringement or title</li>
+            <li>Accuracy, reliability, or quality of AI-generated content</li>
+            <li>Uninterrupted or error-free operation</li>
+            <li>Freedom from harmful components</li>
+        </ul>
+
+        <h3>10.3 AI Content Disclaimer</h3>
+        <p>AI-generated diagrams and content are provided for convenience only. You are responsible for reviewing and validating all AI outputs before use. We make no warranties regarding the accuracy, completeness, or suitability of AI-generated content for your purposes.</p>
+
+        <h2>11. Limitation of Liability</h2>
+        
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</p>
+        
+        <h3>11.1 Indirect Damages</h3>
+        <p>WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES.</p>
+
+        <h3>11.2 Cap on Liability</h3>
+        <p>OUR TOTAL LIABILITY ARISING OUT OF OR RELATED TO THESE TERMS SHALL NOT EXCEED THE AMOUNT YOU PAID US IN THE 12 MONTHS PRECEDING THE CLAIM, OR $100, WHICHEVER IS GREATER.</p>
+
+        <h3>11.3 AI Service Liability</h3>
+        <p>We are not liable for any issues, costs, or damages arising from your use of third-party AI services, including but not limited to API usage costs, service outages, or content generated by AI models.</p>
+
+        <h2>12. Indemnification</h2>
+        
+        <p>You agree to indemnify, defend, and hold harmless JustVision, its affiliates, and their respective officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from:</p>
+        <ul>
+            <li>Your use of the App</li>
+            <li>Your violation of these Terms</li>
+            <li>Your violation of any rights of another party</li>
+            <li>Your content or AI-generated content</li>
+            <li>Your use of third-party AI services</li>
+        </ul>
+
+        <h2>13. Modifications to the Service</h2>
+        
+        <p>We reserve the right to:</p>
+        <ul>
+            <li>Modify or discontinue the App at any time</li>
+            <li>Add or remove features</li>
+            <li>Change pricing with 30 days' notice</li>
+            <li>Update these Terms (we'll notify you of material changes)</li>
+        </ul>
+
+        <h2>14. Term and Termination</h2>
+        
+        <h3>14.1 Term</h3>
+        <p>These Terms commence when you first use JustVision and continue until terminated.</p>
+
+        <h3>14.2 Termination by You</h3>
+        <p>You may terminate at any time by uninstalling the App and canceling your subscription.</p>
+
+        <h3>14.3 Termination by Us</h3>
+        <p>We may suspend or terminate your access immediately if you:</p>
+        <ul>
+            <li>Violate these Terms</li>
+            <li>Fail to pay applicable fees</li>
+            <li>Engage in fraudulent or illegal activity</li>
+            <li>Pose a security risk</li>
+        </ul>
+
+        <h3>14.4 Effect of Termination</h3>
+        <p>Upon termination, your right to use the App ceases immediately. We are not obligated to store or return any of your data after termination.</p>
+
+        <h2>15. Dispute Resolution</h2>
+        
+        <h3>15.1 Governing Law</h3>
+        <p>These Terms are governed by the laws of [Your Jurisdiction], without regard to conflict of law principles.</p>
+
+        <h3>15.2 Arbitration</h3>
+        <p>Any dispute arising from these Terms shall be resolved through binding arbitration in accordance with [Arbitration Rules], except that you may bring claims in small claims court if they qualify.</p>
+
+        <h2>16. General Provisions</h2>
+        
+        <h3>16.1 Entire Agreement</h3>
+        <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and us regarding JustVision.</p>
+
+        <h3>16.2 Severability</h3>
+        <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full effect.</p>
+
+        <h3>16.3 Waiver</h3>
+        <p>Our failure to enforce any right or provision of these Terms shall not constitute a waiver of such right or provision.</p>
+
+        <h3>16.4 Assignment</h3>
+        <p>You may not assign these Terms without our prior written consent. We may assign these Terms at any time.</p>
+
+        <h3>16.5 Force Majeure</h3>
+        <p>We shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control.</p>
+
+        <h2>17. Contact Information</h2>
+        
+        <p>For questions about these Terms, please contact us through:</p>
+        <ul>
+            <li>The support channels provided in the App</li>
+            <li>The Atlassian Marketplace listing</li>
+        </ul>
+
+        <h2>18. Changes to Terms</h2>
+        
+        <p>We may update these Terms from time to time. We will notify you of material changes by:</p>
+        <ul>
+            <li>Posting a notice in the App</li>
+            <li>Sending an email to registered users</li>
+            <li>Updating the "Last Updated" date at the top of this page</li>
+        </ul>
+        
+        <p>Your continued use of JustVision after changes take effect constitutes acceptance of the revised Terms.</p>
+
+        <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e2e8f0;">
+
+        <p><strong>By using JustVision, you acknowledge that you have read and understood these Terms and agree to be bound by them.</strong></p>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+        <p>© 2025 JustVision for Atlassian. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Confluence Diagrams Fail (And How AI Fixes Them) - JustVision</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #1a202c; }
+        .nav { background: white; border-bottom: 1px solid #e2e8f0; padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 1.5rem; font-weight: 800; text-decoration: none; }
+        .logo-icon { width: 40px; height: 40px; }
+        .logo-text-just { background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .logo-text-vision { color: #1a202c; }
+        .hero { padding: 4rem 2rem; background: linear-gradient(135deg, #f0f9ff 0%, #f0fdf4 100%); }
+        .hero-container { max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-meta { color: #64748b; margin-bottom: 2rem; }
+        .hero-description { font-size: 1.3rem; color: #475569; }
+        .content { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
+        .content h2 { font-size: 2rem; margin-top: 3rem; margin-bottom: 1rem; }
+        .content h3 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: #1e40af; }
+        .content p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .content ul { margin-left: 2rem; margin-bottom: 1.5rem; }
+        .content li { margin-bottom: 0.75rem; font-size: 1.05rem; }
+        .highlight-box { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 2rem; margin: 2rem 0; border-radius: 8px; }
+        .stat-box { background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%); color: white; padding: 2rem; border-radius: 15px; text-align: center; margin: 2rem 0; }
+        .stat-number { font-size: 3rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .cta-box { background: linear-gradient(135deg, #1e40af 0%, #059669 100%); color: white; padding: 3rem; border-radius: 20px; text-align: center; margin: 4rem 0; }
+        .btn { padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 10px; text-decoration: none; display: inline-block; background: white; color: #1e40af; }
+        .footer { background: #1a202c; color: #94a3b8; padding: 2rem; margin-top: 4rem; text-align: center; }
+        .footer-links { list-style: none; display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-links a { color: #94a3b8; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100">
+                    <defs><linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+                    </linearGradient></defs>
+                    <line x1="50" y1="20" x2="30" y2="70" stroke="url(#logo-grad)" stroke-width="5" opacity="0.3"/>
+                    <line x1="50" y1="20" x2="70" y2="70" stroke="url(#logo-grad)" stroke-width="5" opacity="0.3"/>
+                    <line x1="30" y1="70" x2="70" y2="70" stroke="url(#logo-grad)" stroke-width="5" opacity="0.3"/>
+                    <circle cx="50" cy="20" r="16" fill="url(#logo-grad)"/>
+                    <circle cx="30" cy="70" r="16" fill="url(#logo-grad)"/>
+                    <circle cx="70" cy="70" r="16" fill="url(#logo-grad)"/>
+                </svg>
+                <div><span class="logo-text-just">Just</span><span class="logo-text-vision">Vision</span></div>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Why Most Confluence Diagrams Are Broken (And How AI Fixes Them)</h1>
+            <div class="hero-meta">Published December 9, 2024 • 7 min read</div>
+            <p class="hero-description">
+                90% of technical documentation in Confluence lacks proper diagrams. Not because teams don't want them—but because current tools make them impossibly painful to create and maintain. Here's what's broken and how AI solves it.
+            </p>
+        </div>
+    </section>
+
+    <article class="content">
+        <div class="stat-box">
+            <div class="stat-number">47%</div>
+            <p>of developers say they avoid creating diagrams because existing tools are too time-consuming</p>
+        </div>
+
+        <p>Walk through any company's Confluence space and you'll see it: walls of text where diagrams should be. Outdated architecture diagrams from 2021. Product managers describing user flows in bullet points instead of flowcharts.</p>
+
+        <p>This isn't a documentation culture problem. It's a tooling problem.</p>
+
+        <h2>The Three Phases of Diagram Tool Failure</h2>
+
+        <h3>Phase 1: Initial Enthusiasm</h3>
+        <p>A new team member decides to improve documentation. They install a diagramming plugin, spend 90 minutes creating their first architecture diagram. It looks... okay. They're proud. They share it.</p>
+
+        <h3>Phase 2: The Update Cycle Breaks</h3>
+        <p>Two weeks later, the system changes. The diagram is now incorrect. Updating it means:</p>
+        <ul>
+            <li>Finding the original source file (where was it again?)</li>
+            <li>Re-learning the tool's quirks</li>
+            <li>Spending 30+ minutes on manual repositioning</li>
+            <li>Export, upload, re-embed</li>
+        </ul>
+        <p>Result: The diagram doesn't get updated.</p>
+
+        <h3>Phase 3: Documentation Decay</h3>
+        <p>Six months later, that diagram is worse than useless—it's actively misleading. New team members trust it, make wrong assumptions, waste time debugging non-existent issues.</p>
+
+        <p>Sound familiar? This is the lifecycle of most Confluence diagrams.</p>
+
+        <h2>Why Traditional Diagram Tools Fail in Confluence</h2>
+
+        <h3>Problem 1: Context Switching is Brutal</h3>
+        <p>You're writing documentation in Confluence. You need a diagram. Now you must:</p>
+        <ol>
+            <li>Open external tool or separate editor</li>
+            <li>Create diagram</li>
+            <li>Export as image</li>
+            <li>Upload to Confluence</li>
+            <li>Embed in page</li>
+            <li>Lose editability (or maintain parallel source files)</li>
+        </ol>
+        <p>Each step is friction. Friction kills momentum. Momentum is everything in documentation.</p>
+
+        <h3>Problem 2: The "Learning Curve Tax"</h3>
+        <p>Most diagram tools require learning:</p>
+        <ul>
+            <li>Specific syntax (PlantUML, Mermaid, etc.)</li>
+            <li>UI conventions and shortcuts</li>
+            <li>Export/import workflows</li>
+            <li>Version control integration</li>
+        </ul>
+        <p>This knowledge evaporates between uses. You relearn the same tool every three months.</p>
+
+        <h3>Problem 3: The Collaboration Barrier</h3>
+        <p>In any team:</p>
+        <ul>
+            <li>30% can use complex diagram tools proficiently</li>
+            <li>40% can stumble through them</li>
+            <li>30% avoid them entirely</li>
+        </ul>
+        <p>Result: Documentation becomes a bottleneck concentrated in the hands of a few power users.</p>
+
+        <h3>Problem 4: The Update Disincentive</h3>
+        <p>When updating a diagram takes 30 minutes, it doesn't happen. Teams make a rational choice:</p>
+        <ul>
+            <li>Option A: Spend 30 minutes updating diagram</li>
+            <li>Option B: Ship the feature</li>
+        </ul>
+        <p>Option B wins every time. Documentation rots.</p>
+
+        <h2>The AI-First Alternative (That Still Supports Syntax)</h2>
+
+        <p>JustVision eliminates every failure point in the traditional workflow—while still supporting power users who want direct syntax control:</p>
+
+        <h3>No Context Switching</h3>
+        <p>You're already in Confluence. Choose your approach:</p>
+        <ul>
+            <li><strong>Plain English:</strong> "Create a class diagram showing User, Employee, and Customer inheritance." Hit enter. Done.</li>
+            <li><strong>Direct Syntax:</strong> Write your PlantUML or Mermaid code directly. Full syntax highlighting and validation.</li>
+            <li><strong>Hybrid:</strong> Start with AI, fine-tune with syntax. Or vice versa.</li>
+        </ul>
+        <p>Zero context switches. Zero momentum loss. Your choice of method.</p>
+
+        <h3>No Learning Curve (Unless You Want It)</h3>
+        <p>Plain English works immediately. But if you know PlantUML or Mermaid? Use it. JustVision supports both approaches seamlessly.</p>
+
+        <h3>No Collaboration Barriers</h3>
+        <p>Product managers describe user flows. QA engineers create test diagrams. Everyone contributes. No bottlenecks.</p>
+
+        <h3>Updates Are Effortless</h3>
+        <p>System changed? Update your description. Regenerate. 10 seconds. Done.</p>
+        <p>When updates are effortless, they actually happen. Living documentation becomes reality.</p>
+
+        <h2>Real-World Impact: Three Case Studies</h2>
+
+        <h3>Case Study 1: Technical Documentation Team</h3>
+        <p><strong>Before JustVision:</strong></p>
+        <ul>
+            <li>12 pages needed architecture diagrams</li>
+            <li>Only 4 had diagrams (all outdated)</li>
+            <li>Average diagram age: 8 months</li>
+            <li>Creating one diagram: 45 minutes average</li>
+        </ul>
+        <p><strong>After JustVision (30 days):</strong></p>
+        <ul>
+            <li>All 12 pages have current diagrams</li>
+            <li>32 additional diagrams created proactively</li>
+            <li>Average diagram age: 2 weeks</li>
+            <li>Creating one diagram: 30 seconds average</li>
+        </ul>
+
+        <h3>Case Study 2: Product Team</h3>
+        <p><strong>Before:</strong> User flows described in text. Developers misunderstood requirements. Three features shipped with wrong behavior.</p>
+        <p><strong>After:</strong> PMs create visual user flows in Confluence. Misunderstandings dropped 80%. Development velocity increased 25%.</p>
+
+        <h3>Case Study 3: Onboarding Process</h3>
+        <p><strong>Before:</strong> New engineers spent 2 weeks understanding system architecture from text descriptions and asking senior developers.</p>
+        <p><strong>After:</strong> Architecture diagrams on every major page. Onboarding time reduced to 4 days. Senior developer interruptions cut by 70%.</p>
+
+        <h2>The Hidden ROI of Effortless Diagrams</h2>
+
+        <p>When diagrams are this easy, something interesting happens: teams create more diagrams. A lot more.</p>
+
+        <h3>Diagrams You Didn't Know You Needed</h3>
+        <ul>
+            <li><strong>Decision flowcharts:</strong> "Should we cache this?" becomes a visual decision tree</li>
+            <li><strong>State machines:</strong> Feature flag states suddenly make sense</li>
+            <li><strong>Sequence diagrams:</strong> Authentication flow stops being a mystery</li>
+            <li><strong>Organization charts:</strong> Team structure becomes clear</li>
+            <li><strong>Process flows:</strong> Deploy process, PR review process, incident response</li>
+        </ul>
+
+        <p>These diagrams were always valuable. They just weren't worth the tool friction. Now they are.</p>
+
+        <h2>What About Existing Diagrams?</h2>
+
+        <p>You've probably got hundreds of existing diagrams in various formats. JustVision handles them:</p>
+        <ul>
+            <li><strong>Import PlantUML/Mermaid:</strong> Existing syntax diagrams work as-is</li>
+            <li><strong>Update with AI:</strong> Tell JustVision what to change, regenerate</li>
+            <li><strong>Convert formats:</strong> PlantUML to Mermaid, or vice versa</li>
+            <li><strong>Enhance quality:</strong> AI improves layout and styling</li>
+        </ul>
+
+        <h2>Making the Switch</h2>
+
+        <p>Teams moving to JustVision typically follow this pattern:</p>
+
+        <h3>Week 1: Test Drive</h3>
+        <ul>
+            <li>Install JustVision</li>
+            <li>Create 2-3 diagrams for current projects</li>
+            <li>Experience the speed difference</li>
+            <li>Realize you'll never go back</li>
+        </ul>
+
+        <h3>Week 2-4: Documentation Sprint</h3>
+        <ul>
+            <li>Identify pages that need diagrams</li>
+            <li>Create 20-30 diagrams (takes less time than you think)</li>
+            <li>Watch documentation quality transform</li>
+        </ul>
+
+        <h3>Month 2+: Living Documentation</h3>
+        <ul>
+            <li>Diagrams stay current because updates are effortless</li>
+            <li>Team members proactively add visual documentation</li>
+            <li>New hire onboarding accelerates</li>
+            <li>Knowledge sharing improves dramatically</li>
+        </ul>
+
+        <div class="cta-box">
+            <h3>Transform Your Confluence Documentation</h3>
+            <p>See how AI-powered diagrams can revolutionize your team's documentation in 30 days.</p>
+            <a href="index.html#install" class="btn">Start Free Trial</a>
+            <p style="margin-top: 1rem; font-size: 1rem;">✓ No credit card • ✓ 30-day trial • ✓ Install in 60 seconds</p>
+        </div>
+
+        <h2>Conclusion: Documentation That Doesn't Rot</h2>
+
+        <p>The documentation problem in Confluence isn't that teams don't care. It's that tools make caring too expensive.</p>
+
+        <p>When creating a diagram takes 5 seconds instead of 50 minutes, teams create diagrams. When updating takes 10 seconds instead of 30 minutes, diagrams stay current.</p>
+
+        <p>The result: documentation that actually helps instead of hinders. Knowledge that propagates instead of decays. Teams that move faster instead of slower.</p>
+
+        <p>That's not a better diagram tool. That's a better way of working.</p>
+    </article>
+
+    <footer class="footer">
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+        <p>© 2025 JustVision for Atlassian. All rights reserved.</p>
+    </footer>
+</body>
+</html>

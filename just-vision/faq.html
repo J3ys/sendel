@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - JustVision</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: #ffffff;
+        }
+        
+        .nav {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text-just {
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-text-vision {
+            color: #1a202c;
+        }
+        
+        .hero {
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #f0fdf4 100%);
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-highlight {
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+        
+        .faq-answer {
+            color: #475569;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .faq-answer p {
+            margin-bottom: 1rem;
+        }
+        
+        .faq-answer ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-answer code {
+            background: #f1f5f9;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+        
+        .highlight-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .highlight-box strong {
+            color: #1e40af;
+        }
+        
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .footer {
+            background: #1a202c;
+            color: #94a3b8;
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: #3b82f6;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .faq-question {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100">
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <line x1="50" y1="20" x2="30" y2="70" stroke="url(#logo-grad)" stroke-width="5" opacity="0.3"/>
+                    <line x1="50" y1="20" x2="70" y2="70" stroke="url(#logo-grad)" stroke-width="5" opacity="0.3"/>
+                    <line x1="30" y1="70" x2="70" y2="70" stroke="url(#logo-grad)" stroke-width="5" opacity="0.3"/>
+                    <circle cx="50" cy="20" r="16" fill="url(#logo-grad)"/>
+                    <circle cx="30" cy="70" r="16" fill="url(#logo-grad)"/>
+                    <circle cx="70" cy="70" r="16" fill="url(#logo-grad)"/>
+                </svg>
+                <div>
+                    <span class="logo-text-just">Just</span><span class="logo-text-vision">Vision</span>
+                </div>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1><span class="hero-highlight">Frequently Asked</span> Questions</h1>
+        <p>Everything you need to know about JustVision</p>
+    </section>
+
+    <!-- FAQ Content -->
+    <div class="content">
+        
+        <div class="faq-item">
+            <h2 class="faq-question">Do I need an API key to use JustVision?</h2>
+            <div class="faq-answer">
+                <div class="highlight-box">
+                    <p><strong>Yes, you need an Anthropic API key to use JustVision.</strong> This is required because JustVision uses Claude AI to understand your natural language descriptions and generate diagrams.</p>
+                </div>
+                <p>Here's why we designed it this way:</p>
+                <ul>
+                    <li><strong>You control your costs:</strong> With your own API key, you only pay for what you use directly to Anthropic. No markups, no hidden fees.</li>
+                    <li><strong>Enterprise security:</strong> Your data goes directly to Anthropic's servers, not through our infrastructure. Your diagrams and descriptions never touch our servers.</li>
+                    <li><strong>Unlimited usage:</strong> No artificial limits. Create as many diagrams as you need.</li>
+                    <li><strong>Latest AI models:</strong> You automatically get access to the newest Claude models as Anthropic releases them.</li>
+                </ul>
+                
+                <p><strong>Getting your API key is simple:</strong></p>
+                <ol>
+                    <li>Go to <code>console.anthropic.com</code></li>
+                    <li>Create an account (if you don't have one)</li>
+                    <li>Generate an API key</li>
+                    <li>Add it to JustVision settings in your Confluence/Jira instance</li>
+                </ol>
+                
+                <p><strong>What about costs?</strong> Claude API usage is very affordable. For typical diagram creation, you're looking at $0.01-0.05 per diagram. A team of 10 creating 50 diagrams a week typically spends $10-25/month in API costs.</p>
+                
+                <div class="warning-box">
+                    <p><strong>Future flexibility:</strong> We're planning to add support for other AI vendors (OpenAI, Google Gemini, Azure OpenAI) so you'll have even more choice and control over your AI provider.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h2 class="faq-question">What types of diagrams can JustVision create?</h2>
+            <div class="faq-answer">
+                <p>JustVision can create virtually any type of diagram used in software development and business documentation:</p>
+                <ul>
+                    <li><strong>UML Diagrams:</strong> Class diagrams, sequence diagrams, state machines, activity diagrams, component diagrams</li>
+                    <li><strong>Architecture Diagrams:</strong> System architecture, network diagrams, deployment diagrams</li>
+                    <li><strong>Flowcharts:</strong> Business processes, decision trees, workflow diagrams</li>
+                    <li><strong>Data Models:</strong> Entity-relationship diagrams (ERDs), database schemas</li>
+                    <li><strong>Organizational:</strong> Org charts, hierarchy diagrams</li>
+                    <li><strong>Marketing Visuals:</strong> Banners, icons, infographics</li>
+                </ul>
+                <p>If you can describe it in plain English, JustVision can create it.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h2 class="faq-question">How is JustVision different from other diagramming tools?</h2>
+            <div class="faq-answer">
+                <p>JustVision is the <strong>only AI-first diagramming tool</strong> built specifically for Confluence and Jira. Here's what makes us different:</p>
+                
+                <p><strong>vs. Traditional Tools (Draw.io, Gliffy):</strong></p>
+                <ul>
+                    <li>No manual positioning or drag-and-drop needed</li>
+                    <li>Instant diagram generation from text</li>
+                    <li>Updates in seconds, not hours</li>
+                    <li>AI understands context and relationships</li>
+                </ul>
+                
+                <p><strong>vs. Syntax-Based Tools (PlantUML, Mermaid plugins):</strong></p>
+                <ul>
+                    <li>No syntax to learn—use plain English</li>
+                    <li>Non-technical team members can create diagrams</li>
+                    <li>AI handles layout and styling automatically</li>
+                    <li>Can still import and work with existing PlantUML/Mermaid code</li>
+                </ul>
+                
+                <p><strong>vs. Generic AI Tools:</strong></p>
+                <ul>
+                    <li>Built specifically for Confluence and Jira workflows</li>
+                    <li>Direct embedding—no export/import steps</li>
+                    <li>Understands software development terminology</li>
+                    <li>Optimized for technical documentation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h2 class="faq-question">Can I edit diagrams after they're created?</h2>
+            <div class="faq-answer">
+                <p><strong>Absolutely!</strong> JustVision makes editing incredibly simple:</p>
+                <ul>
+                    <li><strong>Conversational editing:</strong> Just say "add a new state called Processing" or "make the arrows thicker"</li>
+                    <li><strong>Regenerate instantly:</strong> Update your description and regenerate the entire diagram in seconds</li>
+                    <li><strong>Iterative refinement:</strong> Keep refining until it's perfect</li>
+                    <li><strong>No manual repositioning:</strong> AI handles all layout adjustments automatically</li>
+                </ul>
+                <p>This is one of JustVision's biggest advantages—changes that would take 30 minutes in traditional tools take 30 seconds.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h2 class="faq-question">Does JustVision work with existing PlantUML or Mermaid diagrams?</h2>
+            <div class="faq-answer">
+                <p><strong>Yes!</strong> JustVision fully supports direct use of diagram syntax:</p>
+                <ul>
+                    <li><strong>Use syntax directly:</strong> Write PlantUML, Mermaid, or GraphViz code just like you always have</li>
+                    <li><strong>Or use plain English:</strong> Let AI generate the syntax for you—your choice</li>
+                    <li><strong>Import existing diagrams:</strong> Your current syntax-based diagrams work as-is</li>
+                    <li><strong>AI enhancement:</strong> Use plain English to modify existing syntax diagrams</li>
+                    <li><strong>Convert between formats:</strong> PlantUML → Mermaid, or vice versa</li>
+                    <li><strong>Export in any format:</strong> SVG, PNG, PDF</li>
+                </ul>
+                <p><strong>The best of both worlds:</strong> Power users can write syntax directly for precise control. Everyone else can use plain English for instant results. Mix and match as needed.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h2 class="faq-question">How long is the free trial?</h2>
+            <div class="faq-answer">
+                <p><strong>30 days, fully featured.</strong> No credit card required to start.</p>
+                <p>During your trial:</p>
+                <ul>
+                    <li>Full access to all features</li>
+                    <li>Unlimited diagrams (you only pay for your API usage to Anthropic)</li>
+                    <li>No watermarks or limitations</li>
+                    <li>Full support</li>
+                </ul>
+                <p>After the trial, plans start at $10/user/month for the app license. Remember, you'll also need your Anthropic API key (typically $10-25/month for a small team).</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h2 class="faq-question">Is my data secure?</h2>
+            <div class="faq-answer">
+                <p><strong>Extremely secure.</strong> Here's our security model:</p>
+                <ul>
+                    <li><strong>Direct API calls:</strong> Your descriptions go directly from your browser to Anthropic's servers using your API key</li>
+                    <li><strong>No data storage:</strong> We don't store your diagrams or descriptions on our servers</li>
+                    <li><strong>Respects Confluence/Jira permissions:</strong> All access control is enforced by Atlassian</li>
+                    <li><strong>SOC 2 compliant infrastructure:</strong> Anthropic (Claude) maintains enterprise-grade security</li>
+                    <li><strong>Your API key, your control:</strong> You can revoke API access at any time</li>
+                </ul>
+                <p>For enterprise customers, we also support private cloud deployments.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h2 class="faq-question">What happens if AI makes a mistake in my diagram?</h2>
+            <div class="faq-answer">
+                <p>Great question! While Claude AI is remarkably accurate, here's how we handle edge cases:</p>
+                <ul>
+                    <li><strong>Instant regeneration:</strong> Don't like the result? Click regenerate for a different interpretation</li>
+                    <li><strong>Refine your description:</strong> Add more details to guide the AI more precisely</li>
+                    <li><strong>Conversational fixes:</strong> Say "the arrow should go the other way" and regenerate</li>
+                    <li><strong>Manual fallback:</strong> You can always export and fine-tune in your preferred tool</li>
+                </ul>
+                <p>In practice, 90%+ of diagrams are correct on the first try, and refinement takes seconds.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h2 class="faq-question">Can I use JustVision for commercial projects?</h2>
+            <div class="faq-answer">
+                <p><strong>Yes, absolutely.</strong> JustVision is designed for commercial use:</p>
+                <ul>
+                    <li>Create diagrams for client deliverables</li>
+                    <li>Use in proposals and presentations</li>
+                    <li>Include in product documentation</li>
+                    <li>Generate marketing materials</li>
+                </ul>
+                <p>Your license includes commercial use rights. All diagrams you create are yours to use however you need.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h2 class="faq-question">How do I get started?</h2>
+            <div class="faq-answer">
+                <p><strong>Getting started takes less than 5 minutes:</strong></p>
+                <ol>
+                    <li><strong>Install JustVision</strong> from the Atlassian Marketplace</li>
+                    <li><strong>Get your Anthropic API key</strong> from console.anthropic.com</li>
+                    <li><strong>Add the API key</strong> in JustVision settings</li>
+                    <li><strong>Create your first diagram</strong> by describing what you need</li>
+                </ol>
+                <p>That's it! No training required. If you can describe what you need, JustVision can create it.</p>
+                <p><a href="index.html#install" style="color: #3b82f6; font-weight: 600;">Start your free trial now →</a></p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h2 class="faq-question">What if I need help or have more questions?</h2>
+            <div class="faq-answer">
+                <p>We're here to help! Reach out through:</p>
+                <ul>
+                    <li><strong>In-app support:</strong> Available directly in JustVision</li>
+                    <li><strong>Documentation:</strong> Comprehensive guides and examples</li>
+                    <li><strong>Email support:</strong> Usually respond within 24 hours</li>
+                    <li><strong>Community forum:</strong> Share tips and tricks with other users</li>
+                </ul>
+                <p>Enterprise customers get priority support with dedicated success managers.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <p>© 2025 JustVision for Atlassian. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

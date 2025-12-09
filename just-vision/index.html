@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustVision - AI-Powered Diagrams for Confluence & Jira</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: #ffffff;
+        }
+        
+        .nav {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text-just {
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-text-vision {
+            color: #1a202c;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+        
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #f0fdf4 100%);
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-highlight {
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #475569;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-benefits {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 3rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            color: white;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #3b82f6;
+            border: 2px solid #3b82f6;
+        }
+        
+        .btn-secondary:hover {
+            background: #f0f9ff;
+        }
+        
+        .banner-image {
+            margin-top: 4rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+        }
+        
+        .section-alt {
+            background: #f8fafc;
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .section-description {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .pain-point {
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            border-left: 4px solid #ef4444;
+        }
+        
+        .pain-point h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #1a202c;
+        }
+        
+        .pain-point p {
+            color: #64748b;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .feature-infographic {
+            margin: 0 auto 1.5rem auto;
+            max-width: 200px;
+        }
+        
+        .feature-infographic svg {
+            width: 100%;
+            height: auto;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+        
+        .feature p {
+            color: #64748b;
+            line-height: 1.8;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #64748b;
+        }
+        
+        .comparison {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .comparison-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .comparison-column ul {
+            list-style: none;
+        }
+        
+        .comparison-column li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .comparison-column li::before {
+            position: absolute;
+            left: 0;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+        
+        .old-way li::before {
+            content: '❌';
+            color: #ef4444;
+        }
+        
+        .new-way li::before {
+            content: '✓';
+            color: #10b981;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+        
+        .faq-answer {
+            color: #64748b;
+            line-height: 1.8;
+        }
+        
+        .faq-answer a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+        
+        .highlight-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #1e40af 0%, #059669 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .footer {
+            background: #1a202c;
+            color: #94a3b8;
+            padding: 3rem 2rem 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: #3b82f6;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100">
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <line x1="50" y1="20" x2="30" y2="70" stroke="url(#logo-grad)" stroke-width="5" opacity="0.3"/>
+                    <line x1="50" y1="20" x2="70" y2="70" stroke="url(#logo-grad)" stroke-width="5" opacity="0.3"/>
+                    <line x1="30" y1="70" x2="70" y2="70" stroke="url(#logo-grad)" stroke-width="5" opacity="0.3"/>
+                    <circle cx="50" cy="20" r="16" fill="url(#logo-grad)"/>
+                    <circle cx="30" cy="70" r="16" fill="url(#logo-grad)"/>
+                    <circle cx="70" cy="70" r="16" fill="url(#logo-grad)"/>
+                </svg>
+                <div>
+                    <span class="logo-text-just">Just</span><span class="logo-text-vision">Vision</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="#install">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>
+                <span class="hero-highlight">AI-Powered Diagrams</span><br>
+                That Create Themselves
+            </h1>
+            <p class="hero-subtitle">
+                Stop wrestling with diagram syntax. Describe what you need in plain English, or use PlantUML, Mermaid, GraphViz directly—JustVision handles them all. Create and edit professional diagrams instantly.
+            </p>
+            <p class="hero-benefits">
+                ✓ Free 30-day trial • No credit card required • Install in 60 seconds
+            </p>
+            <div class="cta-buttons">
+                <a href="#install" class="btn btn-primary">Start Free Trial</a>
+                <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+            </div>
+            <img src="banner1.png" alt="JustVision creating diagrams from plain text" class="banner-image">
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Creating Diagrams Shouldn't Be This Hard</h2>
+                <p class="section-description">Teams waste hours every week fighting with diagram tools instead of building products.</p>
+            </div>
+            
+            <div class="pain-points">
+                <div class="pain-point">
+                    <h3>❌ Syntax is too technical</h3>
+                    <p>PlantUML, Mermaid, GraphViz—each has its own complex syntax. Most team members give up and create documents instead.</p>
+                </div>
+                <div class="pain-point">
+                    <h3>❌ Manual editing takes forever</h3>
+                    <p>Drag, drop, align, resize, repeat. Simple changes take 30 minutes when they should take 30 seconds.</p>
+                </div>
+                <div class="pain-point">
+                    <h3>❌ Diagrams become outdated</h3>
+                    <p>System changes but documentation doesn't. Outdated diagrams are worse than no diagrams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="section section-alt">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Describe It. See It. Ship It.</h2>
+                <p class="section-description">JustVision transforms plain English into professional diagrams using AI. No syntax to learn. No manual positioning. Just instant, beautiful results.</p>
+            </div>
+            
+            <img src="banner2.png" alt="JustVision AI transforming text into diagrams" class="banner-image" style="margin-bottom: 4rem;">
+            
+            <div class="comparison">
+                <div class="comparison-grid">
+                    <div class="comparison-column old-way">
+                        <h3 style="color: #ef4444;">The Old Way</h3>
+                        <ul>
+                            <li>Learn PlantUML or Mermaid syntax</li>
+                            <li>Manually position every element</li>
+                            <li>Spend hours on formatting</li>
+                            <li>Export and upload images</li>
+                            <li>Start over when requirements change</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-column new-way">
+                        <h3 style="color: #10b981;">The JustVision Way</h3>
+                        <ul>
+                            <li>Use plain English OR write syntax directly</li>
+                            <li>AI generates perfect layout (or use your own)</li>
+                            <li>Professional styling automatic</li>
+                            <li>Direct embedding in Confluence/Jira</li>
+                            <li>Update with AI or edit syntax—your choice</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Everything You Need. Nothing You Don't.</h2>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1: AI-First Design -->
+                <div class="feature">
+                    <div class="feature-infographic">
+                        <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Chat bubble with text -->
+                            <rect x="20" y="20" width="160" height="50" rx="10" fill="#3b82f6" opacity="0.1"/>
+                            <text x="100" y="40" text-anchor="middle" font-size="11" fill="#1a202c" font-weight="500">
+                                "Create a login flow with
+                            </text>
+                            <text x="100" y="54" text-anchor="middle" font-size="11" fill="#1a202c" font-weight="500">
+                                user, auth, and dashboard"
+                            </text>
+                            
+                            <!-- Arrow -->
+                            <path d="M 100 75 L 100 95" stroke="#10b981" stroke-width="3" fill="none" marker-end="url(#arrowgreen)"/>
+                            
+                            <!-- Diagram result -->
+                            <rect x="30" y="100" width="140" height="25" rx="5" fill="#10b981" opacity="0.15"/>
+                            <circle cx="50" cy="112.5" r="8" fill="#10b981" opacity="0.3"/>
+                            <rect x="70" y="106" width="45" height="13" rx="3" fill="#10b981" opacity="0.3"/>
+                            <rect x="125" y="106" width="35" height="13" rx="3" fill="#10b981" opacity="0.3"/>
+                            
+                            <defs>
+                                <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                    <path d="M0,0 L0,6 L9,3 z" fill="#10b981" />
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>AI-First Design</h3>
+                    <p>Powered by Claude AI for natural language understanding. Describe complex systems in plain English and get instant, professional diagrams.</p>
+                </div>
+                
+                <!-- Feature 2: All Diagram Types -->
+                <div class="feature">
+                    <div class="feature-infographic">
+                        <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Grid of different diagram types -->
+                            <rect x="20" y="20" width="70" height="50" rx="5" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="2"/>
+                            <text x="55" y="42" text-anchor="middle" font-size="10" fill="#1a202c" font-weight="600">UML</text>
+                            <text x="55" y="54" text-anchor="middle" font-size="8" fill="#64748b">Class</text>
+                            
+                            <rect x="110" y="20" width="70" height="50" rx="5" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="2"/>
+                            <text x="145" y="42" text-anchor="middle" font-size="10" fill="#1a202c" font-weight="600">Flow</text>
+                            <text x="145" y="54" text-anchor="middle" font-size="8" fill="#64748b">Chart</text>
+                            
+                            <rect x="20" y="80" width="70" height="50" rx="5" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="2"/>
+                            <text x="55" y="102" text-anchor="middle" font-size="10" fill="#1a202c" font-weight="600">ERD</text>
+                            <text x="55" y="114" text-anchor="middle" font-size="8" fill="#64748b">Database</text>
+                            
+                            <rect x="110" y="80" width="70" height="50" rx="5" fill="#8b5cf6" opacity="0.1" stroke="#8b5cf6" stroke-width="2"/>
+                            <text x="145" y="102" text-anchor="middle" font-size="10" fill="#1a202c" font-weight="600">Arch</text>
+                            <text x="145" y="114" text-anchor="middle" font-size="8" fill="#64748b">System</text>
+                        </svg>
+                    </div>
+                    <h3>All Diagram Types</h3>
+                    <p>UML class diagrams, sequence diagrams, state machines, flowcharts, ERDs, architecture diagrams, and more—all from simple descriptions.</p>
+                </div>
+                
+                <!-- Feature 3: Instant Updates -->
+                <div class="feature">
+                    <div class="feature-infographic">
+                        <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Clock/Speed indicator -->
+                            <circle cx="100" cy="60" r="35" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.2"/>
+                            <circle cx="100" cy="60" r="35" fill="none" stroke="#3b82f6" stroke-width="3" stroke-dasharray="110 220" opacity="0.8" transform="rotate(-90 100 60)"/>
+                            
+                            <!-- Lightning bolt -->
+                            <path d="M 110 40 L 95 60 L 105 60 L 90 80 L 105 60 L 95 60 Z" fill="#10b981"/>
+                            
+                            <!-- Time indicator -->
+                            <text x="100" y="115" text-anchor="middle" font-size="24" fill="#3b82f6" font-weight="bold">3s</text>
+                            <text x="100" y="130" text-anchor="middle" font-size="10" fill="#64748b">average time</text>
+                        </svg>
+                    </div>
+                    <h3>Instant Updates</h3>
+                    <p>Change your description, regenerate instantly. No more manual repositioning or redrawing. Iterate at the speed of thought.</p>
+                </div>
+                
+                <!-- Feature 4: Marketing Visuals -->
+                <div class="feature">
+                    <div class="feature-infographic">
+                        <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Design tools palette -->
+                            <rect x="40" y="30" width="120" height="80" rx="10" fill="url(#gradient2)" opacity="0.15"/>
+                            
+                            <!-- Icons and shapes -->
+                            <circle cx="70" cy="55" r="12" fill="#3b82f6" opacity="0.6"/>
+                            <rect x="95" y="43" width="24" height="24" rx="4" fill="#10b981" opacity="0.6"/>
+                            <path d="M 135 43 L 147 55 L 135 67 L 123 55 Z" fill="#f59e0b" opacity="0.6"/>
+                            
+                            <!-- Banner representation -->
+                            <rect x="50" y="80" width="100" height="20" rx="5" fill="#8b5cf6" opacity="0.3"/>
+                            <text x="100" y="93" text-anchor="middle" font-size="9" fill="white" font-weight="600">Banner</text>
+                            
+                            <defs>
+                                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>Marketing Visuals Too</h3>
+                    <p>Not just diagrams—create banners, icons, and marketing graphics. One tool for all your visual communication needs.</p>
+                </div>
+                
+                <!-- Feature 5: Your Choice of Input -->
+                <div class="feature">
+                    <div class="feature-infographic">
+                        <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Three input methods -->
+                            <rect x="20" y="20" width="50" height="35" rx="5" fill="#3b82f6" opacity="0.15"/>
+                            <text x="45" y="35" text-anchor="middle" font-size="9" fill="#1a202c" font-weight="600">Plain</text>
+                            <text x="45" y="46" text-anchor="middle" font-size="9" fill="#1a202c" font-weight="600">English</text>
+                            
+                            <rect x="75" y="20" width="50" height="35" rx="5" fill="#10b981" opacity="0.15"/>
+                            <text x="100" y="35" text-anchor="middle" font-size="9" fill="#1a202c" font-weight="600">PlantUML</text>
+                            <text x="100" y="46" text-anchor="middle" font-size="9" fill="#1a202c" font-weight="600">Mermaid</text>
+                            
+                            <rect x="130" y="20" width="50" height="35" rx="5" fill="#f59e0b" opacity="0.15"/>
+                            <text x="155" y="35" text-anchor="middle" font-size="9" fill="#1a202c" font-weight="600">GraphViz</text>
+                            <text x="155" y="46" text-anchor="middle" font-size="9" fill="#1a202c" font-weight="600">DOT</text>
+                            
+                            <!-- Converging arrows to result -->
+                            <path d="M 45 60 L 100 90" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
+                            <path d="M 100 60 L 100 90" stroke="#10b981" stroke-width="2" opacity="0.5"/>
+                            <path d="M 155 60 L 100 90" stroke="#f59e0b" stroke-width="2" opacity="0.5"/>
+                            
+                            <!-- Output -->
+                            <rect x="70" y="95" width="60" height="30" rx="8" fill="url(#gradient3)"/>
+                            <text x="100" y="113" text-anchor="middle" font-size="11" fill="white" font-weight="600">Perfect</text>
+                            <text x="100" y="123" text-anchor="middle" font-size="9" fill="white">Diagram</text>
+                            
+                            <defs>
+                                <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>Your Choice of Input</h3>
+                    <p>Use plain English for instant results, or write PlantUML, Mermaid, GraphViz directly. Switch between formats freely. Import existing diagrams and enhance them with AI.</p>
+                </div>
+                
+                <!-- Feature 6: Native Integration -->
+                <div class="feature">
+                    <div class="feature-infographic">
+                        <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Confluence/Jira page -->
+                            <rect x="40" y="20" width="120" height="90" rx="8" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
+                            <rect x="40" y="20" width="120" height="20" rx="8" fill="#3b82f6" opacity="0.1"/>
+                            <circle cx="53" cy="30" r="3" fill="#3b82f6" opacity="0.4"/>
+                            <circle cx="62" cy="30" r="3" fill="#3b82f6" opacity="0.4"/>
+                            <circle cx="71" cy="30" r="3" fill="#3b82f6" opacity="0.4"/>
+                            
+                            <!-- Embedded diagram -->
+                            <rect x="55" y="50" width="90" height="48" rx="5" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3,3"/>
+                            <circle cx="75" cy="70" r="6" fill="#10b981" opacity="0.4"/>
+                            <rect x="90" y="64" width="35" height="12" rx="3" fill="#10b981" opacity="0.4"/>
+                            <line x1="81" y1="70" x2="90" y2="70" stroke="#10b981" stroke-width="1.5"/>
+                            
+                            <text x="100" y="125" text-anchor="middle" font-size="9" fill="#64748b" font-weight="500">No external tools</text>
+                        </svg>
+                    </div>
+                    <h3>Native Integration</h3>
+                    <p>Built specifically for Confluence and Jira. No context switching, no external tools. Everything stays in your workspace.</p>
+                </div>
+            </div>
+            
+            <img src="banner3.png" alt="JustVision features in action" class="banner-image" style="margin-top: 4rem;">
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section section-alt">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Real Results from Real Teams</h2>
+            </div>
+            <div class="stats">
+                <div>
+                    <div class="stat-number">10x</div>
+                    <div class="stat-label">Faster diagram creation</div>
+                </div>
+                <div>
+                    <div class="stat-number">5hrs</div>
+                    <div class="stat-label">Saved per developer/week</div>
+                </div>
+                <div>
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">Reduction in outdated docs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="install" class="cta-section">
+        <div class="section-container">
+            <h2>Ready to Transform Your Documentation?</h2>
+            <p>Start your free 30-day trial. No credit card required.</p>
+            <div class="cta-buttons">
+                <a href="https://marketplace.atlassian.com/apps/justvision" class="btn btn-primary" style="background: white; color: #1e40af;">Install from Marketplace</a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 1rem;">✓ Install in under 60 seconds • ✓ 30-day free trial • ✓ Cancel anytime</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="blog-ai-vs-competitors.html">AI vs Traditional Tools</a></li>
+                        <li><a href="blog-confluence-diagrams.html">Confluence Diagrams Guide</a></li>
+                        <li><a href="blog-uml-made-easy.html">UML Made Easy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://marketplace.atlassian.com/">Marketplace</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 JustVision for Atlassian. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
