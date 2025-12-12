@@ -1,0 +1,112 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" width="1200" height="900">
+            <defs>
+                <linearGradient id="bg4" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#fdf4ff;stop-opacity:1"></stop>
+                    <stop offset="100%" style="stop-color:#fae8ff;stop-opacity:1"></stop>
+                </linearGradient>
+                <filter id="shadow4">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="3"></feGaussianBlur>
+                    <feOffset dx="0" dy="4" result="offsetblur"></feOffset>
+                    <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.2"></feFuncA>
+                    </feComponentTransfer>
+                    <feMerge>
+                        <feMergeNode></feMergeNode>
+                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                    </feMerge>
+                </filter>
+                <linearGradient id="promo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1"></stop>
+                    <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1"></stop>
+                </linearGradient>
+            </defs>
+            
+            <!-- Background -->
+            <rect width="1200" height="900" fill="url(#bg4)"></rect>
+            
+            <!-- Decorative elements -->
+            <circle cx="200" cy="150" r="100" fill="#8b5cf6" opacity="0.05"></circle>
+            <circle cx="1000" cy="750" r="120" fill="#ec4899" opacity="0.05"></circle>
+            
+            <!-- Title Section -->
+            <text x="60" y="90" font-size="58" font-weight="800" fill="#1a202c">
+                Marketing Graphics
+            </text>
+            <text x="60" y="160" font-size="58" font-weight="800" fill="#1a202c">
+                From Plain Text
+            </text>
+            <text x="60" y="220" font-size="26" fill="#64748b">
+                Create promotional banners and visual content instantly
+            </text>
+            
+            <!-- Input Box -->
+            <rect x="60" y="280" width="1080" height="160" rx="16" fill="white" filter="url(#shadow4)"></rect>
+            <text x="90" y="320" font-size="20" font-weight="600" fill="#64748b">
+                Plain English Input:
+            </text>
+            <text x="90" y="365" font-size="24" fill="#1a202c">
+                "Create a promotional banner for our Black Friday sale. Show
+            </text>
+            <text x="90" y="400" font-size="24" fill="#1a202c">
+                50% OFF in large text with a modern purple gradient background
+            </text>
+            <text x="90" y="435" font-size="24" fill="#1a202c">
+                and include 'Limited Time: Nov 24-27' at the bottom"
+            </text>
+            
+            <!-- Arrow -->
+            <g transform="translate(600, 460)">
+                <path d="M 0 0 L 0 60" stroke="#8b5cf6" stroke-width="6" marker-end="url(#arrow4)"></path>
+            </g>
+            
+            <!-- Output Box -->
+            <rect x="60" y="540" width="1080" height="300" rx="16" fill="white" filter="url(#shadow4)"></rect>
+            
+            <!-- Output Header -->
+            <rect x="60" y="540" width="1080" height="60" rx="16" fill="#8b5cf6" opacity="0.1"></rect>
+            <text x="90" y="580" font-size="22" font-weight="700" fill="#8b5cf6">
+                ✓ Professional Marketing Banner Generated
+            </text>
+            
+            <!-- Generated Banner Preview (inside output box) -->
+            <g transform="translate(140, 630)">
+                <!-- The actual promotional banner -->
+                <rect x="0" y="0" width="920" height="180" rx="12" fill="url(#promo-gradient)" filter="url(#shadow4)"></rect>
+                
+                <!-- Decorative circles on banner -->
+                <circle cx="100" cy="90" r="80" fill="white" opacity="0.1"></circle>
+                <circle cx="820" cy="90" r="100" fill="white" opacity="0.08"></circle>
+                
+                <!-- Main offer text -->
+                <text x="460" y="65" font-size="72" font-weight="900" fill="white" text-anchor="middle">
+                    50% OFF
+                </text>
+                
+                <!-- Subtext -->
+                <text x="460" y="110" font-size="28" font-weight="600" fill="white" text-anchor="middle" opacity="0.95">
+                    BLACK FRIDAY SALE
+                </text>
+                
+                <!-- Date badge -->
+                <rect x="320" y="130" width="280" height="35" rx="17.5" fill="white" opacity="0.2"></rect>
+                <text x="460" y="154" font-size="18" font-weight="700" fill="white" text-anchor="middle">
+                    Limited Time: Nov 24-27
+                </text>
+            </g>
+            
+            <!-- Features callout -->
+            <g transform="translate(100, 870)">
+                <text x="0" y="0" font-size="18" font-weight="600" fill="#8b5cf6">
+                    ✓ Perfect for:
+                </text>
+                <text x="150" y="0" font-size="17" fill="#64748b">
+                    Product launches • Sales campaigns • Social media • Email headers • Presentations
+                </text>
+            </g>
+            
+            <defs>
+                <marker id="arrow4" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+                    <path d="M0,0 L0,8 L10,4 z" fill="#8b5cf6"></path>
+                </marker>
+            </defs>
+        </svg>
