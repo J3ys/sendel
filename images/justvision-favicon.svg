@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="JustVision Favicon">
+  <title>JustVision Favicon</title>
+  <defs>
+    <linearGradient id="grad-icon-sm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <line x1="50" y1="20" x2="30" y2="70" stroke="url(#grad-icon-sm)" stroke-width="6" opacity="0.4"/>
+  <line x1="50" y1="20" x2="70" y2="70" stroke="url(#grad-icon-sm)" stroke-width="6" opacity="0.4"/>
+  <line x1="30" y1="70" x2="70" y2="70" stroke="url(#grad-icon-sm)" stroke-width="6" opacity="0.4"/>
+  <circle cx="50" cy="20" r="18" fill="url(#grad-icon-sm)"/>
+  <circle cx="30" cy="70" r="18" fill="url(#grad-icon-sm)"/>
+  <circle cx="70" cy="70" r="18" fill="url(#grad-icon-sm)"/>
+</svg>
