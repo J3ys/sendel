@@ -13,6 +13,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-homebrew-cask
+  cancel-in-progress: true
+
 jobs:
   release-and-update-cask:
     runs-on: ubuntu-latest
@@ -36,13 +40,13 @@ jobs:
           echo "sha256=$SHA" >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub Release
-        id: release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: "v${{ steps.version.outputs.version }}"
           name: "STFU v${{ steps.version.outputs.version }}"
           files: apps/STFU.dmg
           generate_release_notes: true
+          make_latest: true
 
       - name: Update Cask formula
         run: |
