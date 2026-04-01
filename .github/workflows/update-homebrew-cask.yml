@@ -1,0 +1,64 @@
+name: Update Homebrew Cask
+
+on:
+  push:
+    paths:
+      - "apps/STFU.dmg"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version (e.g. 1.0.0)"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-homebrew-cask
+  cancel-in-progress: true
+
+jobs:
+  release-and-update-cask:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Determine version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "version=${{ github.event.inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=$(date +'%Y.%m.%d')" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Compute SHA256
+        id: sha
+        run: |
+          SHA=$(sha256sum apps/STFU.dmg | awk '{print $1}')
+          echo "sha256=$SHA" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "v${{ steps.version.outputs.version }}"
+          name: "STFU v${{ steps.version.outputs.version }}"
+          files: apps/STFU.dmg
+          generate_release_notes: true
+          make_latest: true
+
+      - name: Update Cask formula
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          SHA="${{ steps.sha.outputs.sha256 }}"
+          sed -i "s/version \".*\"/version \"${VERSION}\"/" Casks/stfu.rb
+          sed -i "s/sha256 \".*\"/sha256 \"${SHA}\"/" Casks/stfu.rb
+
+      - name: Commit updated Cask
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Casks/stfu.rb
+          git diff --cached --quiet || git commit -m "Update STFU cask to v${{ steps.version.outputs.version }}"
+          git push

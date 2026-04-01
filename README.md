@@ -47,6 +47,19 @@ Modify the `css/styles.css` file to change:
 
 Replace the SVG files in the `images/` directory with your own diagrams or images.
 
+## STFU App
+
+### Install via Homebrew
+
+```bash
+brew tap J3ys/sendel https://github.com/J3ys/sendel
+brew install --cask stfu
+```
+
+### Updating the Cask
+
+The Homebrew cask is automatically updated by a GitHub Action whenever `apps/STFU.dmg` is pushed to the repository. You can also trigger an update manually from the **Actions** tab using the **Update Homebrew Cask** workflow and providing a version number.
+
 ## Setup
 
 1. Fork this repository
