@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STFU — Rage Sounds for After the Call</title>
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="../js/ga.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --fire-red: #e74c3c;
+            --dark-red: #c0392b;
+            --hot-orange: #e67e22;
+            --warm-yellow: #f39c12;
+            --dark-bg: #1a1a2e;
+            --darker-bg: #16213e;
+            --text-light: #fff;
+            --text-muted: #b0b0c0;
+            --card-bg: #1f2937;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background: var(--dark-bg);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--darker-bg);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-light);
+        }
+
+        .logo .icon {
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--hot-orange);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #2d1b3d 50%, var(--darker-bg) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(231, 76, 60, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-icon {
+            font-size: 5rem;
+            margin-bottom: 24px;
+            display: inline-block;
+            animation: shake 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes shake {
+            0% { transform: rotate(-3deg); }
+            100% { transform: rotate(3deg); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--fire-red), var(--hot-orange), var(--warm-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero .sub-tagline {
+            font-size: 1rem;
+            color: var(--text-muted);
+            opacity: 0.7;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-fire {
+            background: linear-gradient(135deg, var(--fire-red), var(--hot-orange));
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--text-muted);
+            color: var(--text-muted);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--hot-orange);
+            color: var(--hot-orange);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background: var(--darker-bg);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 48px;
+            font-size: 1.1rem;
+        }
+
+        /* How it works */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .step-card .step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .step-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .step-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 28px;
+            border-left: 4px solid var(--hot-orange);
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Install */
+        .install-section {
+            text-align: center;
+            background: linear-gradient(135deg, var(--darker-bg), #2d1b3d);
+        }
+
+        .install-box {
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            padding: 32px;
+            max-width: 650px;
+            margin: 0 auto;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .install-box h3 {
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+        }
+
+        .code-block {
+            background: #0d1117;
+            border-radius: 8px;
+            padding: 16px 20px;
+            font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 0.95rem;
+            color: #58a6ff;
+            text-align: left;
+            margin-bottom: 12px;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block code {
+            color: #58a6ff;
+        }
+
+        .code-block .prompt {
+            color: #8b949e;
+            user-select: none;
+        }
+
+        .install-note {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 16px;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .disclaimer .emoji {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker-bg);
+            padding: 32px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer .footer-links {
+            margin-top: 12px;
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        footer .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        footer .footer-links a:hover {
+            color: var(--hot-orange);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">
+                    <span class="icon">🤬</span>
+                    <span>STFU</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#install">Install</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-icon">🔥</div>
+                <h1>STFU</h1>
+                <p class="tagline">Rage sounds for when the call finally ends. Because some meetings deserve a soundtrack.</p>
+                <p class="sub-tagline">Let it out. Just… not while they can still hear you.</p>
+                <div class="cta-buttons">
+                    <a href="#install" class="btn btn-fire"><i class="fas fa-download"></i>&nbsp; Install with Brew</a>
+                    <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section id="how-it-works" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Three steps to post-call bliss. No therapy required.</p>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-icon">📞</div>
+                        <h3>You're on a call</h3>
+                        <p>The meeting that could have been an email is happening. Again. STFU sits quietly in your menu bar, waiting.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">📴</div>
+                        <h3>The call ends</h3>
+                        <p>STFU detects the moment your microphone goes silent. The call is over. You're finally free.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">💥</div>
+                        <h3>Rage sounds play</h3>
+                        <p>Boom. Satisfying rage sounds blast through your speakers. Scream, slam, smash — digitally. Feel the relief.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features" class="section">
+            <div class="container">
+                <h2 class="section-title">Why You'll Love It</h2>
+                <p class="section-subtitle">Built for everyone who's ever wanted to flip a table after a meeting.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>🎤 Call End Detection</h3>
+                        <p>Automatically knows when your call ends. No buttons to press, no timers to set. It just knows — like your frustration.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🔊 Rage Sounds</h3>
+                        <p>A curated library of satisfying sounds to express what you couldn't say out loud. Glass smashing, air horns, dramatic music — pick your vibe.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🛡️ Safety Net</h3>
+                        <p>Double-checks that the call actually ended before playing anything. Because playing rage sounds while still on the call would be… a career choice.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🍎 macOS Native</h3>
+                        <p>Lightweight menu bar app. No Electron bloat, no web wrappers. Just a tiny, angry app living in your menu bar, ready when you need it.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🎧 Headphone-Aware</h3>
+                        <p>Won't blast rage sounds through your laptop speakers in the office. Unless you want it to. We don't judge.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>⚡ Instant Relief</h3>
+                        <p>Zero delay between call end and catharsis. The moment the call drops, the rage drops too. Therapeutic? Maybe. Satisfying? Absolutely.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Install -->
+        <section id="install" class="section section-alt install-section">
+            <div class="container">
+                <h2 class="section-title">Get STFU</h2>
+                <p class="section-subtitle">Install it in seconds. Start raging responsibly.</p>
+                <div class="install-box">
+                    <h3>🍺 Install with Homebrew</h3>
+                    <div class="code-block">
+                        <code><span class="prompt">$ </span>brew tap J3ys/sendel https://github.com/J3ys/sendel</code>
+                    </div>
+                    <div class="code-block">
+                        <code><span class="prompt">$ </span>brew install --cask stfu</code>
+                    </div>
+                    <p class="install-note">Requires macOS and <a href="https://brew.sh" style="color:#58a6ff;">Homebrew</a>. That's it. No sign-ups, no accounts, no subscriptions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+            <div class="emoji">😇</div>
+            <p>STFU is a fun productivity tool. No actual rage required.<br>
+            Use responsibly. Or don't. We're not your manager.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sendel. Built with 🔥 and mild frustration.</p>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="https://github.com/J3ys/sendel" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
