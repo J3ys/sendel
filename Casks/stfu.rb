@@ -1,6 +1,6 @@
 cask "stfu" do
   version "2026.04.01"
-  sha256 "357621e9b970baa1012bef9365ad4cffad909a79290ed6a184dd6dff6c84889c"
+  sha256 "947ba03900a29d293741d99dac7422774651284625beb2e40a14e0a62601b60a"
 
   url "https://github.com/J3ys/sendel/releases/download/v#{version}/STFU.dmg"
   name "STFU"
