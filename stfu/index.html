@@ -317,6 +317,98 @@
             margin-top: 16px;
         }
 
+        /* Refund Promotion */
+        .refund-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d1b3d 50%, #16213e 100%);
+        }
+
+        .refund-box {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 2px solid var(--hot-orange);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .refund-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--fire-red), var(--hot-orange), var(--warm-yellow));
+        }
+
+        .refund-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--fire-red), var(--hot-orange));
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .refund-box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+
+        .refund-box > p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 24px;
+        }
+
+        .refund-steps {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+        }
+
+        .refund-steps li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .refund-steps li:last-child {
+            border-bottom: none;
+        }
+
+        .refund-steps .step-num {
+            background: var(--hot-orange);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .refund-note {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-top: 16px;
+            opacity: 0.8;
+        }
+
         /* Disclaimer */
         .disclaimer {
             text-align: center;
@@ -401,6 +493,7 @@
                     <li><a href="#how-it-works">How It Works</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#install">Install</a></li>
+                    <li><a href="#refund">50% Refund</a></li>
                 </ul>
             </nav>
         </div>
@@ -495,6 +588,39 @@
                         <code><span class="prompt">$ </span>brew install --cask stfu</code>
                     </div>
                     <p class="install-note">Requires macOS and <a href="https://brew.sh" style="color:#58a6ff;">Homebrew</a>. That's it. No sign-ups, no accounts, no subscriptions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Refund Promotion -->
+        <section id="refund" class="section refund-section">
+            <div class="container">
+                <h2 class="section-title">Get 50% Back 💸</h2>
+                <p class="section-subtitle">Love STFU? Share it with the world and get half your money back.</p>
+                <div class="refund-box">
+                    <span class="refund-badge">🔥 Promotion</span>
+                    <h3>Post About STFU. Get 50% Refund.</h3>
+                    <p>Create your own post about STFU on any social media platform. Once it hits <strong style="color: var(--hot-orange);">2,000 views</strong>, you're eligible for a <strong style="color: var(--warm-yellow);">50% refund</strong> on your purchase.</p>
+                    <ol class="refund-steps">
+                        <li>
+                            <span class="step-num">1</span>
+                            <span>Create and publish a post about STFU on any social media platform (Twitter/X, LinkedIn, Instagram, TikTok, YouTube, etc.)</span>
+                        </li>
+                        <li>
+                            <span class="step-num">2</span>
+                            <span>Wait for your post to reach at least <strong style="color: var(--text-light);">2,000 views</strong></span>
+                        </li>
+                        <li>
+                            <span class="step-num">3</span>
+                            <span>Send us the link to your post along with a screenshot showing the view count</span>
+                        </li>
+                        <li>
+                            <span class="step-num">4</span>
+                            <span>Receive your <strong style="color: var(--warm-yellow);">50% refund</strong> — simple as that 🎉</span>
+                        </li>
+                    </ol>
+                    <a href="mailto:contact@sendel.io?subject=STFU%2050%25%20Refund%20Request&body=Hi%2C%0A%0AI%20would%20like%20to%20claim%20my%2050%25%20refund%20for%20STFU.%0A%0ASocial%20media%20post%20link%3A%20%5Bpaste%20link%20here%5D%0A%0APlease%20find%20attached%20a%20screenshot%20showing%202%2C000%2B%20views.%0A%0AThank%20you!" class="btn btn-fire"><i class="fas fa-envelope"></i>&nbsp; Claim Your Refund</a>
+                    <p class="refund-note">The post must be your own original content and publicly accessible. View count will be verified. One refund per customer.</p>
                 </div>
             </div>
         </section>
