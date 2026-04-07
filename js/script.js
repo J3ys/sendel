@@ -3,42 +3,42 @@ document.addEventListener('DOMContentLoaded', function() {
     // Theme Toggle
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle.querySelector('i');
-    
+    const logoImg = document.querySelector('.logo img');
+
+    function updateThemeIcon(theme) {
+        if (theme === 'dark') {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+            if (logoImg) logoImg.src = 'images/logo-dark.svg';
+        } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+            if (logoImg) logoImg.src = 'images/logo.svg';
+        }
+    }
+
     // Check for saved theme preference or use preferred color scheme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
         updateThemeIcon(savedTheme);
     } else {
-        // Check if user prefers dark mode
         const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (prefersDarkMode) {
             document.documentElement.setAttribute('data-theme', 'dark');
             updateThemeIcon('dark');
         }
     }
-    
+
     // Theme toggle click event
     themeToggle.addEventListener('click', function() {
         const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        
         updateThemeIcon(newTheme);
     });
-    
-    function updateThemeIcon(theme) {
-        if (theme === 'dark') {
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        } else {
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
-        }
-    }
-    
+
     // Mobile Menu Toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
