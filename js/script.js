@@ -181,6 +181,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Make entire project card clickable
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Don't trigger if clicking the button/link itself
+            if (e.target.closest('.btn')) return;
+            const btn = card.querySelector('.btn');
+            if (btn) btn.click();
+        });
+    });
+
+    // Compact header on scroll
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
     // Add animation on scroll
     const animateOnScroll = function() {
         const elements = document.querySelectorAll('.skill-card, .project-card, .cert-card, .timeline-item');

@@ -16,5 +16,5 @@
     </g>
 
     <!-- Company name -->
-    <text x="55" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#1f2937" letter-spacing="-0.5px">Sendel</text>
+    <text x="65" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="currentColor" letter-spacing="-0.5px" dominant-baseline="central">Sendel</text>
 </svg>
