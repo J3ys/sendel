@@ -44,8 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.nav-links');
     
     hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
+        const isActive = hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isActive);
     });
     
     // Close mobile menu when a link is clicked
@@ -118,21 +119,43 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Show modal
             modal.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+            document.body.style.overflow = 'hidden';
+            closeModal.focus();
         });
     });
-    
-    // Close modal
-    closeModal.addEventListener('click', function() {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
+
+    // Modal focus trap
+    modal.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModalFn();
+            return;
+        }
+        if (e.key !== 'Tab') return;
+        const focusable = modal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])');
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
     });
-    
+
+    function closeModalFn() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close modal
+    closeModal.addEventListener('click', closeModalFn);
+
     // Close modal when clicking outside
     window.addEventListener('click', function(event) {
         if (event.target === modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            closeModalFn();
         }
     });
     
@@ -145,8 +168,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
+                const headerHeight = document.querySelector('header').offsetHeight;
                 window.scrollTo({
-                    top: targetElement.offsetTop - 70, // Adjust for fixed header
+                    top: targetElement.offsetTop - headerHeight,
                     behavior: 'smooth'
                 });
             }
@@ -201,21 +225,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add animation on scroll
+    // Add animation on scroll (throttled)
+    let scrollTicking = false;
     const animateOnScroll = function() {
         const elements = document.querySelectorAll('.skill-card, .project-card, .cert-card, .timeline-item');
-        
+        const screenPosition = window.innerHeight / 1.2;
+
         elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.2;
-            
-            if (elementPosition < screenPosition) {
+            if (!element.classList.contains('animate') && element.getBoundingClientRect().top < screenPosition) {
                 element.classList.add('animate');
             }
         });
+        scrollTicking = false;
     };
-    
+
+    function onScroll() {
+        if (!scrollTicking) {
+            requestAnimationFrame(animateOnScroll);
+            scrollTicking = true;
+        }
+    }
+
     // Run animation check on load and scroll
     window.addEventListener('load', animateOnScroll);
-    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('scroll', onScroll);
+
+    // Dynamic footer year
+    const footerYear = document.getElementById('footer-year');
+    if (footerYear) footerYear.textContent = new Date().getFullYear();
 });

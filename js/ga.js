@@ -18,10 +18,10 @@
   gtag('js', new Date());
 
   // Configure all tracking IDs here
-  // GA4 measurement ID
-  gtag('config', 'G-NG45EL8QDN');
+  // GA4 measurement ID — SameSite=Secure to reduce third-party cookie warnings
+  gtag('config', 'G-NG45EL8QDN', { cookie_flags: 'SameSite=None;Secure' });
   // Google Ads conversion ID (existing)
-  gtag('config', 'AW-17637931008');
+  gtag('config', 'AW-17637931008', { cookie_flags: 'SameSite=None;Secure' });
 
   // --- Marketplace outbound link analytics ---
   // Tracks clicks to Atlassian Marketplace across the site without blocking navigation.

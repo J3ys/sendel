@@ -20,6 +20,7 @@
     /* Dark Theme — balanced complement */
     --primary-color: #7db4e8;
     --primary-light: #93c5fd;
+    --primary-interactive: #2563eb;
     --accent-color: #d4a853;
     --accent-light: #e8c468;
     --secondary-color: #94a3b8;
@@ -251,6 +252,9 @@ header.scrolled .nav-links a {
 .hamburger {
     display: none;
     cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
 }
 
 .hamburger span {
@@ -259,7 +263,7 @@ header.scrolled .nav-links a {
     height: 3px;
     background-color: var(--text-color);
     margin: 5px 0;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* Hero Section */
@@ -345,6 +349,22 @@ header.scrolled .nav-links a {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     color: white;
+}
+
+/* Dark-mode contrast fix: white-on-light-blue buttons fail WCAG AA (2.19:1).
+   Use a darker interactive blue (#2563eb ≈ 4.6:1 with white). */
+[data-theme="dark"] .filter-btn.active {
+    background-color: var(--primary-interactive);
+    border-color: var(--primary-interactive);
+}
+
+[data-theme="dark"] .btn-primary {
+    background-color: var(--primary-interactive);
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background-color: #3b82f6;
 }
 
 .skills-grid {
@@ -583,9 +603,8 @@ header.scrolled .nav-links a {
 
 /* Contact Section */
 .contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .contact-info {
@@ -812,15 +831,6 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 992px) {
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-info {
-        padding-right: 0;
-        margin-bottom: 30px;
-    }
-
     .projects-grid {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
