@@ -3,18 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enterprise Architect & E-commerce Specialist</title>
+    <title>Sendel — Enterprise Architect &amp; E-commerce Specialist</title>
+    <meta name="description" content="Enterprise architect specializing in AI orchestration, scalable cloud architectures, and e-commerce platforms. Creator of Just Search, Just Blame, Just Vision for Atlassian, and STFU for macOS.">
+    <meta name="author" content="Slavik Sendel">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sendel.org/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sendel — Enterprise Architect &amp; E-commerce Specialist">
+    <meta property="og:description" content="AI orchestration, scalable cloud architectures, and e-commerce consultation. Creator of Just Search, Just Blame, Just Vision, and STFU.">
+    <meta property="og:url" content="https://sendel.org/">
+    <meta property="og:site_name" content="Sendel">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Sendel — Enterprise Architect &amp; E-commerce Specialist">
+    <meta name="twitter:description" content="AI orchestration, scalable cloud architectures, and e-commerce consultation.">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Slavik Sendel",
+        "url": "https://sendel.org",
+        "email": "slavik@sendel.org",
+        "jobTitle": "Enterprise Architect",
+        "description": "Enterprise architect specializing in AI orchestration, scalable cloud architectures, and e-commerce platforms.",
+        "knowsAbout": [
+          "Enterprise Architecture",
+          "E-commerce",
+          "AI Orchestration",
+          "Cloud Architecture",
+          "Microservices",
+          "SAP Commerce Cloud",
+          "Java",
+          "React",
+          "AWS",
+          "Kubernetes",
+          "Machine Learning"
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Certified Enterprise Architect (TOGAF)",
+            "credentialCategory": "certification",
+            "recognizedBy": { "@type": "Organization", "name": "The Open Group" }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "AWS Certified Solutions Architect — Professional",
+            "credentialCategory": "certification",
+            "recognizedBy": { "@type": "Organization", "name": "Amazon Web Services" }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "MSc in Telecommunications",
+            "credentialCategory": "degree"
+          }
+        ],
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "SoftwareApplication",
+              "name": "Just Search for Atlassian",
+              "applicationCategory": "BusinessApplication",
+              "description": "AI-augmented search layer for Jira and Confluence with natural language queries and smart summaries.",
+              "url": "https://sendel.org/just-search/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "SoftwareApplication",
+              "name": "Just Blame for Confluence",
+              "applicationCategory": "BusinessApplication",
+              "description": "Inline authorship attribution for Confluence pages.",
+              "url": "https://sendel.org/just-blame/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "SoftwareApplication",
+              "name": "Just Vision — AI Diagrams",
+              "applicationCategory": "BusinessApplication",
+              "description": "Generate and maintain UML and architecture diagrams for Confluence and Jira from plain English.",
+              "url": "https://sendel.org/just-vision/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "SoftwareApplication",
+              "name": "STFU — Rage Sounds",
+              "applicationCategory": "EntertainmentApplication",
+              "operatingSystem": "macOS",
+              "description": "Plays rage sounds the moment your call ends.",
+              "url": "https://sendel.org/stfu/"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <meta name="theme-color" content="#1e3a5f">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="js/script.js" defer></script>
     <script src="js/ga.js"></script>
 </head>
 <body>
+    <a href="#home" class="skip-link">Skip to main content</a>
     <header>
         <div class="container">
             <nav>
-                <div class="logo"><img src="images/logo.svg" alt="Sendel Logo"></div>
+                <div class="logo"><img src="images/logo.svg" alt="Sendel Logo" width="200" height="60"></div>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#skills">Skills</a></li>
@@ -23,13 +135,13 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <button id="theme-toggle" aria-label="Toggle dark/light mode">
-                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-moon" aria-hidden="true"></i>
                 </button>
-                <div class="hamburger">
+                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </nav>
         </div>
     </header>
@@ -62,72 +174,72 @@
                 <div class="skills-grid">
                     <!-- Frontend Skills -->
                     <div class="skill-card" data-category="frontend">
-                        <i class="fab fa-html5"></i>
+                        <i class="fab fa-html5" aria-hidden="true"></i>
                         <h3>HTML5/CSS3</h3>
                     </div>
                     <div class="skill-card" data-category="frontend">
-                        <i class="fab fa-js"></i>
+                        <i class="fab fa-js" aria-hidden="true"></i>
                         <h3>JavaScript</h3>
                     </div>
                     <div class="skill-card" data-category="frontend">
-                        <i class="fab fa-react"></i>
+                        <i class="fab fa-react" aria-hidden="true"></i>
                         <h3>React</h3>
                     </div>
 
                     <!-- Backend Skills -->
                     <div class="skill-card" data-category="backend">
-                        <i class="fab fa-java"></i>
+                        <i class="fab fa-java" aria-hidden="true"></i>
                         <h3>Java</h3>
                     </div>
                     <div class="skill-card" data-category="backend">
-                        <i class="fab fa-node-js"></i>
+                        <i class="fab fa-node-js" aria-hidden="true"></i>
                         <h3>Node.js</h3>
                     </div>
                     <div class="skill-card" data-category="backend">
-                        <i class="fas fa-database"></i>
+                        <i class="fas fa-database" aria-hidden="true"></i>
                         <h3>SQL/NoSQL</h3>
                     </div>
 
                     <!-- Architecture Skills -->
                     <div class="skill-card" data-category="architecture">
-                        <i class="fas fa-sitemap"></i>
+                        <i class="fas fa-sitemap" aria-hidden="true"></i>
                         <h3>Microservices</h3>
                     </div>
                     <div class="skill-card" data-category="architecture">
-                        <i class="fas fa-project-diagram"></i>
+                        <i class="fas fa-project-diagram" aria-hidden="true"></i>
                         <h3>System Design</h3>
                     </div>
                     <div class="skill-card" data-category="architecture">
-                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-cloud" aria-hidden="true"></i>
                         <h3>Cloud Architecture</h3>
                     </div>
 
                     <div class="skill-card" data-category="architecture">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
                         <h3>SAP Commerce Cloud (hybris)</h3>
                     </div>
 
                     <!-- DevOps Skills -->
                     <div class="skill-card" data-category="devops">
-                        <i class="fab fa-docker"></i>
+                        <i class="fab fa-docker" aria-hidden="true"></i>
                         <h3>Docker</h3>
                     </div>
                     <div class="skill-card" data-category="devops">
-                        <i class="fab fa-kubernetes"></i>
+                        <i class="fa-solid fa-dharmachakra" aria-hidden="true"></i>
                         <h3>Kubernetes</h3>
                     </div>
                     <div class="skill-card" data-category="devops">
-                        <i class="fab fa-aws"></i>
+                        <i class="fab fa-aws" aria-hidden="true"></i>
                         <h3>AWS</h3>
                     </div>
 
                     <!-- AI Skills -->
                     <div class="skill-card" data-category="ai">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-brain" aria-hidden="true"></i>
                         <h3>Machine Learning</h3>
                     </div>
                     <div class="skill-card" data-category="ai">
-                        <i class="fas fa-robot"></i>
+                        <i class="fas fa-robot" aria-hidden="true"></i>
                         <h3>AI Integration</h3>
                     </div>
                 </div>
@@ -141,7 +253,7 @@
                 <div class="projects-grid">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/project1.svg" alt="E-commerce Platform Architecture">
+                            <img src="images/project1.svg" alt="E-commerce Platform Architecture" width="400" height="200">
                         </div>
                         <div class="project-content">
                             <h3>Enterprise E-commerce Platform</h3>
@@ -167,7 +279,7 @@
 
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/project2.svg" alt="Cloud Migration Strategy">
+                            <img src="images/project2.svg" alt="Cloud Migration Strategy" width="400" height="200">
                         </div>
                         <div class="project-content">
                             <h3>Legacy System Cloud Migration</h3>
@@ -193,7 +305,7 @@
 
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/project3.svg" alt="AI Recommendation Engine">
+                            <img src="images/project3.svg" alt="AI Recommendation Engine" width="400" height="200">
                         </div>
                         <div class="project-content">
                             <h3>AI-Powered Recommendation Engine</h3>
@@ -254,7 +366,7 @@
                                     <li>Governed, cost-controlled AI usage</li>
                                 </ul>
                             </div>
-                            <a class="btn btn-primary" href="just-search/index.html">Open Page</a>
+                            <a class="btn btn-primary" href="just-search/index.html" target="_blank" rel="noopener noreferrer">Open Page</a>
                         </div>
                     </div>
 
@@ -291,7 +403,7 @@
                                     <li>Clear ownership across documentation</li>
                                 </ul>
                             </div>
-                            <a class="btn btn-primary" href="just-blame/index.html">Open Page</a>
+                            <a class="btn btn-primary" href="just-blame/index.html" target="_blank" rel="noopener noreferrer">Open Page</a>
                         </div>
                     </div>
 
@@ -332,7 +444,7 @@
                                     <li>Clear shared understanding across teams</li>
                                 </ul>
                             </div>
-                            <a class="btn btn-primary" href="just-vision/index.html">Open Page</a>
+                            <a class="btn btn-primary" href="just-vision/index.html" target="_blank" rel="noopener noreferrer">Open Page</a>
                         </div>
                     </div>
                     <!-- New Project: STFU — Rage Sounds App -->
@@ -364,7 +476,7 @@
                                     <li>Zero-config menu bar app</li>
                                 </ul>
                             </div>
-                            <a class="btn btn-primary" href="stfu/index.html">Open Page</a>
+                            <a class="btn btn-primary" href="stfu/index.html" target="_blank" rel="noopener noreferrer">Open Page</a>
                         </div>
                     </div>
                 </div>
@@ -378,7 +490,7 @@
                 <div class="certifications-grid">
                     <div class="cert-card">
                         <div class="cert-icon">
-                            <i class="fas fa-award"></i>
+                            <i class="fas fa-award" aria-hidden="true"></i>
                         </div>
                         <div class="cert-content">
                             <h3>Certified Enterprise Architect</h3>
@@ -389,7 +501,7 @@
 
                     <div class="cert-card">
                         <div class="cert-icon">
-                            <i class="fas fa-cloud"></i>
+                            <i class="fas fa-cloud" aria-hidden="true"></i>
                         </div>
                         <div class="cert-content">
                             <h3>AWS Certified Solutions Architect</h3>
@@ -400,7 +512,7 @@
 
                     <div class="cert-card">
                         <div class="cert-icon">
-                            <i class="fas fa-graduation-cap"></i>
+                            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
                         </div>
                         <div class="cert-content">
                             <h3>MSc in Telecommunications</h3>
@@ -421,14 +533,14 @@
                         <h3>Let's Connect</h3>
                         <p>Interested in discussing architecture challenges, e-commerce solutions, or potential collaborations? Feel free to reach out via email or connect with me on professional networks.</p>
                         <div class="email-contact">
-                            <p><i class="fas fa-envelope"></i> <a href="mailto:slavik@sendel.org">slavik@sendel.org</a></p>
+                            <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:slavik@sendel.org">slavik@sendel.org</a></p>
                         </div>
                         <div class="social-links">
-                            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-linkedin"></i>
+                            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
                             </a>
-                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github"></i>
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                                <i class="fab fa-github" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -439,7 +551,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Enterprise Architect Portfolio. All rights reserved.</p>
+            <p>&copy; <span id="footer-year">2026</span> Enterprise Architect Portfolio. All rights reserved.</p>
             <div class="footer-links">
                 <a href="index.html">Home</a>
                 <a href="just-search/terms.html">Terms</a>
@@ -452,7 +564,7 @@
     <!-- Project Details Modal -->
     <div id="project-modal" class="modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
+            <button class="close-modal" aria-label="Close modal">&times;</button>
             <div id="modal-content"></div>
         </div>
     </div>
