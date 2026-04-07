@@ -466,13 +466,16 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease, margin 0.5s ease;
+            max-height: 800px;
         }
 
         .teams-call.call-ended {
             opacity: 0;
             transform: scale(0.95);
             pointer-events: none;
+            max-height: 0;
+            margin: 0 auto;
         }
 
         .teams-call-header {
