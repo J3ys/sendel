@@ -452,6 +452,184 @@
             color: var(--hot-orange);
         }
 
+        /* Teams Call Mockup */
+        .teams-demo {
+            padding: 60px 0;
+            text-align: center;
+            background: var(--darker-bg);
+        }
+
+        .teams-call {
+            max-width: 700px;
+            margin: 32px auto 0;
+            background: #201f1e;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .teams-call.call-ended {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+        }
+
+        .teams-call-header {
+            background: #292828;
+            padding: 10px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #c8c6c4;
+        }
+
+        .teams-call-header .call-timer {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .teams-video-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+            padding: 4px;
+            background: #111;
+            min-height: 260px;
+        }
+
+        .teams-participant {
+            background: #2d2c2c;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 20px;
+        }
+
+        .participant-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .participant-avatar.purple { background: #6264a7; }
+        .participant-avatar.teal { background: #0078d4; }
+        .participant-avatar.green { background: #107c10; }
+        .participant-avatar.orange { background: #ca5010; }
+
+        .participant-name {
+            color: #c8c6c4;
+            font-size: 0.85rem;
+        }
+
+        .teams-toolbar {
+            background: #292828;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .toolbar-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: #3b3a39;
+            color: #c8c6c4;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .toolbar-btn:hover {
+            background: #484644;
+        }
+
+        .toolbar-btn.end-call-btn {
+            width: 56px;
+            height: 44px;
+            border-radius: 22px;
+            background: #d13438;
+            color: #fff;
+            font-size: 1.2rem;
+            animation: pulse-red 1.5s ease-in-out infinite;
+            box-shadow: 0 0 16px rgba(209, 52, 56, 0.5);
+        }
+
+        .toolbar-btn.end-call-btn:hover {
+            background: #a4262c;
+            box-shadow: 0 0 24px rgba(209, 52, 56, 0.7);
+        }
+
+        @keyframes pulse-red {
+            0%, 100% { box-shadow: 0 0 16px rgba(209, 52, 56, 0.4); }
+            50% { box-shadow: 0 0 24px rgba(209, 52, 56, 0.8); }
+        }
+
+        .call-ended-msg {
+            display: none;
+            max-width: 700px;
+            margin: 32px auto 0;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .call-ended-msg.visible {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .call-ended-msg .ended-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .call-ended-msg h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--fire-red);
+        }
+
+        .call-ended-msg p {
+            color: var(--text-muted);
+        }
+
+        .call-ended-msg .restart-btn {
+            margin-top: 20px;
+            padding: 10px 24px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--text-muted);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .call-ended-msg .restart-btn:hover {
+            border-color: var(--hot-orange);
+            color: var(--hot-orange);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -511,6 +689,54 @@
                 <div class="cta-buttons">
                     <a href="#install" class="btn btn-fire"><i class="fas fa-download"></i>&nbsp; Install with Brew</a>
                     <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Try It Demo -->
+        <section class="teams-demo">
+            <div class="container">
+                <h2 class="section-title">Try It 👇</h2>
+                <p class="section-subtitle">End the call. Feel the relief.</p>
+
+                <div class="teams-call" id="teamsCall">
+                    <div class="teams-call-header">
+                        <span>Weekly Status Sync</span>
+                        <span class="call-timer" id="callTimer"></span>
+                    </div>
+                    <div class="teams-video-area">
+                        <div class="teams-participant">
+                            <div class="participant-avatar purple">JM</div>
+                            <span class="participant-name">Janet (Manager)</span>
+                        </div>
+                        <div class="teams-participant">
+                            <div class="participant-avatar teal">BK</div>
+                            <span class="participant-name">Bob (keeps talking)</span>
+                        </div>
+                        <div class="teams-participant">
+                            <div class="participant-avatar green">YO</div>
+                            <span class="participant-name">You (muted, dying inside)</span>
+                        </div>
+                        <div class="teams-participant">
+                            <div class="participant-avatar orange">??</div>
+                            <span class="participant-name">Mystery dialer</span>
+                        </div>
+                    </div>
+                    <div class="teams-toolbar">
+                        <button class="toolbar-btn" title="Camera"><i class="fas fa-video-slash"></i></button>
+                        <button class="toolbar-btn" title="Microphone"><i class="fas fa-microphone-slash"></i></button>
+                        <button class="toolbar-btn" title="Share"><i class="fas fa-arrow-up-from-bracket"></i></button>
+                        <button class="toolbar-btn end-call-btn" id="endCallBtn" title="End call"><i class="fas fa-phone-slash"></i></button>
+                        <button class="toolbar-btn" title="Chat"><i class="fas fa-comment"></i></button>
+                        <button class="toolbar-btn" title="Reactions"><i class="fas fa-face-smile"></i></button>
+                    </div>
+                </div>
+
+                <div class="call-ended-msg" id="callEndedMsg">
+                    <div class="ended-icon">🤬</div>
+                    <h3>FINALLY.</h3>
+                    <p>That meeting was 67 minutes too long. Feel better now?</p>
+                    <button class="restart-btn" id="restartBtn">🔄 Rejoin (why would you?)</button>
                 </div>
             </div>
         </section>
@@ -643,6 +869,63 @@
             </div>
         </div>
     </footer>
+
+    <audio id="stfuAudio" src="STFU.mp3" preload="auto"></audio>
+    <script>
+        (function() {
+            var INITIAL_SECONDS = 4063;
+            var call = document.getElementById('teamsCall');
+            var endBtn = document.getElementById('endCallBtn');
+            var endedMsg = document.getElementById('callEndedMsg');
+            var restartBtn = document.getElementById('restartBtn');
+            var audio = document.getElementById('stfuAudio');
+            var timerEl = document.getElementById('callTimer');
+            var timerInterval = null;
+            var seconds = INITIAL_SECONDS;
+
+            function formatTime(s) {
+                var h = Math.floor(s / 3600);
+                var m = Math.floor((s % 3600) / 60);
+                var sec = s % 60;
+                return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m + ':' + (sec < 10 ? '0' : '') + sec;
+            }
+
+            function startTimer() {
+                stopTimer();
+                timerEl.textContent = formatTime(seconds);
+                timerInterval = setInterval(function() {
+                    seconds++;
+                    timerEl.textContent = formatTime(seconds);
+                }, 1000);
+            }
+
+            function stopTimer() {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+
+            startTimer();
+
+            endBtn.addEventListener('click', function() {
+                stopTimer();
+                call.classList.add('call-ended');
+                setTimeout(function() {
+                    endedMsg.classList.add('visible');
+                }, 500);
+                audio.currentTime = 0;
+                audio.play();
+            });
+
+            restartBtn.addEventListener('click', function() {
+                audio.pause();
+                audio.currentTime = 0;
+                seconds = INITIAL_SECONDS;
+                endedMsg.classList.remove('visible');
+                call.classList.remove('call-ended');
+                startTimer();
+            });
+        })();
+    </script>
 
 </body>
 </html>
