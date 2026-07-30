@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Context7: Self-Host Your Own Documentation MCP Server - ContextMCP Dockerized</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #1a202c; }
+        .nav { background: white; border-bottom: 1px solid #e2e8f0; padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 1.5rem; font-weight: 800; text-decoration: none; color: #1a202c; }
+        .logo-icon { width: 40px; height: 40px; }
+        .hero { padding: 4rem 2rem; background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%); }
+        .hero-container { max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-meta { color: #64748b; margin-bottom: 2rem; }
+        .hero-description { font-size: 1.3rem; color: #475569; }
+        .content { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
+        .content h2 { font-size: 2rem; margin-top: 3rem; margin-bottom: 1rem; }
+        .content h3 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: #4338ca; }
+        .content p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .content ul { margin-left: 2rem; margin-bottom: 1.5rem; }
+        .content li { margin-bottom: 0.75rem; font-size: 1.05rem; }
+        .content ol { margin-left: 2rem; margin-bottom: 1.5rem; }
+        .content ol li { margin-bottom: 0.75rem; font-size: 1.05rem; }
+        .code-box { background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0; font-family: 'Courier New', monospace; font-size: 0.9rem; overflow-x: auto; }
+        .vs-box { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; }
+        .vs-column { padding: 1.5rem; border-radius: 10px; }
+        .context7-way { background: #f5f3ff; border-left: 4px solid #8b5cf6; }
+        .docker-way { background: #eff6ff; border-left: 4px solid #3b82f6; }
+        .vs-column h4 { margin-bottom: 1rem; font-size: 1.2rem; }
+        .highlight-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 2rem; margin: 2rem 0; border-radius: 8px; }
+        .highlight-box-blue { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 2rem; margin: 2rem 0; border-radius: 8px; }
+        .cta-box { background: linear-gradient(135deg, #4338ca 0%, #3b82f6 100%); color: white; padding: 3rem; border-radius: 20px; text-align: center; margin: 4rem 0; }
+        .btn { padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 10px; text-decoration: none; display: inline-block; background: white; color: #4338ca; }
+        .footer { background: #1a202c; color: #94a3b8; padding: 2rem; margin-top: 4rem; text-align: center; }
+        .footer-links { list-style: none; display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-links a { color: #94a3b8; text-decoration: none; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .vs-box { grid-template-columns: 1fr; }
+        }
+    </style>
+    <script src="../js/ga.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" fill="none">
+                    <rect x="20" y="25" width="60" height="50" rx="8" stroke="#3b82f6" stroke-width="4"/>
+                    <circle cx="50" cy="40" r="6" fill="#3b82f6"/>
+                    <circle cx="38" cy="55" r="4" fill="#8b5cf6"/>
+                    <circle cx="62" cy="55" r="4" fill="#8b5cf6"/>
+                    <line x1="44" y1="40" x2="38" y2="55" stroke="#8b5cf6" stroke-width="2"/>
+                    <line x1="56" y1="40" x2="62" y2="55" stroke="#8b5cf6" stroke-width="2"/>
+                </svg>
+                <span>ContextMCP Dockerized</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Beyond Context7: Self-Host Your Own Documentation MCP Server</h1>
+            <div class="hero-meta">Published July 30, 2026 • 6 min read</div>
+            <p class="hero-description">
+                Context7 gives AI coding assistants instant access to library documentation. But what about your own private code, internal docs, or niche frameworks? ContextMCP Dockerized fills that gap — and it's open source.
+            </p>
+        </div>
+    </section>
+
+    <article class="content">
+        <p>If you're using AI coding assistants like Claude Code, Cursor, or Windsurf, you've likely used <strong>Context7</strong> — the MCP server that fetches documentation for thousands of public libraries. Type a question about React, Next.js, or Prisma, and Context7 retrieves the latest docs straight from its indexed catalog. It's a game-changer for AI-assisted development.</p>
+
+        <p>But Context7 has a blind spot: <strong>your code</strong>.</p>
+
+        <p>Your private repositories. Your internal microservices. Your team's bespoke framework. The 200,000-line monorepo with zero documentation that you just inherited. Context7 can't index these because they're not in its public catalog — and they shouldn't be.</p>
+
+        <p>That's where <strong>ContextMCP Dockerized</strong> comes in.</p>
+
+        <h2>Context7: What It Does Well</h2>
+
+        <p>Context7 is a hosted service that indexes documentation from thousands of open-source libraries. When your AI assistant needs to know the latest Supabase API or how to use a specific Tailwind utility, Context7 delivers the answer with source-grounded documentation.</p>
+
+        <p>It's a powerful augmentation, and we use it every day. But it's not designed for:</p>
+        <ul>
+            <li><strong>Private/internal documentation</strong> — Your team's architecture docs, ADRs, or runbooks</li>
+            <li><strong>Proprietary codebases</strong> — Your company's monorepo or internal libraries</li>
+            <li><strong>Niche or unindexed libraries</strong> — Frameworks not in Context7's catalog</li>
+            <li><strong>Local development docs</strong> — READMEs, API specs, and conventions in your local repos</li>
+        </ul>
+
+        <h2>ContextMCP Dockerized: The Alternative</h2>
+
+        <p>ContextMCP Dockerized wraps the upstream <strong>ContextMCP</strong> project in a production-ready Docker setup, making it trivial to run your own documentation MCP server — fully local, fully private, and indexing exactly what you need.</p>
+
+        <h3>Local Mode (Full Privacy)</h3>
+        <p>Everything runs on your machine:</p>
+        <ul>
+            <li><strong>Ollama</strong> for local embeddings (nomic-embed-text, no external API calls)</li>
+            <li><strong>Pinecone Local</strong> for in-memory vector storage (no cloud dependency)</li>
+            <li><strong>Your docs</strong> — indexed from local repos or GitHub</li>
+        </ul>
+        <p>No data ever leaves your machine. No API keys required. Zero ongoing costs.</p>
+
+        <h3>Cloud Mode (Scale)</h3>
+        <p>When you need more power or shared team access:</p>
+        <ul>
+            <li><strong>OpenAI</strong> embeddings for higher-quality vectors</li>
+            <li><strong>Pinecone Cloud</strong> for persistent, scalable vector search</li>
+            <li><strong>Same configuration</strong> — switch between local and cloud with a single flag</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p><strong>One config, two modes.</strong> Develop locally with zero cost, deploy to cloud for your team. The same <code>config.yaml</code> works for both.</p>
+        </div>
+
+        <h2>Head-to-Head: Context7 vs. ContextMCP Dockerized</h2>
+
+        <div class="vs-box">
+            <div class="vs-column context7-way">
+                <h4>Context7</h4>
+                <ul style="margin-top: 1rem; list-style: none;">
+                    <li>✓ Thousands of public libraries indexed</li>
+                    <li>✓ Zero setup — just install the MCP server</li>
+                    <li>✓ Always up-to-date docs for popular frameworks</li>
+                    <li>✗ No private/internal documentation</li>
+                    <li>✗ No local-only mode</li>
+                    <li>✗ Relies on hosted infrastructure</li>
+                </ul>
+            </div>
+            <div class="vs-column docker-way">
+                <h4>ContextMCP Dockerized</h4>
+                <ul style="margin-top: 1rem; list-style: none;">
+                    <li>✓ Any documentation — private or public</li>
+                    <li>✓ 100% local mode (Ollama + Pinecone Local)</li>
+                    <li>✓ Multi-repo indexing from local filesystem</li>
+                    <li>✓ Open source — self-hosted, full control</li>
+                    <li>✓ Cloud mode for team scale</li>
+                    <li>✗ Requires initial Docker setup</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Better Together: Augment, Don't Replace</h2>
+
+        <p>Context7 and ContextMCP Dockerized are <strong>complementary</strong>, not mutually exclusive. The best AI-assisted development setup uses both:</p>
+
+        <div class="highlight-box-blue">
+            <p><strong>Context7</strong> → Fetch docs for React, Next.js, Prisma, Supabase, and other public libraries.<br><br>
+            <strong>ContextMCP Dockerized</strong> → Index your company's monorepo, internal frameworks, architecture decisions, and team conventions.<br><br>
+            <strong>Result:</strong> Your AI assistant knows both the public library docs AND your private codebase.</p>
+        </div>
+
+        <p>Run both MCP servers side by side. Your AI assistant queries Context7 for library references and your local ContextMCP server for project-specific knowledge. No overlap, no conflict — just complete coverage.</p>
+
+        <h2>Multi-Repo Indexing: The Killer Feature</h2>
+
+        <p>One of the most powerful features of ContextMCP Dockerized is <strong>multi-repo indexing</strong>. Instead of configuring one repository at a time, you can point it at a directory of projects:</p>
+
+        <div class="code-box">
+LOCAL_DOCS_ROOT=/path/to/your/projects<br>
+LOCAL_DOCS_REPOS=frontend=typescript,backend=java:src/main,infra=typescript
+        </div>
+
+        <p>Each repo is indexed with AST-aware parsing — extracting methods, classes, and functions from code files while treating config files as whole documents. The result is a semantic search index that understands your codebase structure, not just text.</p>
+
+        <h2>Getting Started in 5 Minutes</h2>
+
+        <ol>
+            <li><strong>Clone the repo:</strong> <code>git clone https://github.com/J3ys/ContextMCPDocker</code></li>
+            <li><strong>Configure:</strong> Edit <code>config.yaml</code> with your repository</li>
+            <li><strong>Start local infra:</strong> <code>docker compose -f docker-compose.local.yml up -d pinecone ollama</code></li>
+            <li><strong>Index your docs:</strong> <code>docker compose -f docker-compose.local.yml --profile reindex run --rm reindex</code></li>
+            <li><strong>Run the app:</strong> <code>docker compose -f docker-compose.local.yml up -d app</code></li>
+        </ol>
+
+        <p>That's it. Your MCP server is running and ready to answer questions about your codebase. Add it as an MCP server in your AI coding tool and start querying your own documentation.</p>
+
+        <h2>What's Coming: A Dedicated Fork</h2>
+
+        <p>ContextMCP Dockerized currently builds on top of the upstream <code>dodopayments/context-mcp</code> project with a small local-support patch. But we're actively working on a <strong>dedicated fork</strong> that will:</p>
+
+        <ul>
+            <li>Add native multi-repo support in the core engine</li>
+            <li>Improve the reindex pipeline for incremental updates</li>
+            <li>Support more embedding providers and vector stores</li>
+            <li>Provide a web UI for managing indexed sources</li>
+        </ul>
+
+        <p>The fork will remain fully open source — because documentation access shouldn't be locked behind a paywall.</p>
+
+        <h2>Open Source: Built by Sendel.org</h2>
+
+        <p>ContextMCP Dockerized is developed by <strong>Sendel.org</strong> (that's me), an independent developer focused on AI orchestration, enterprise architecture, and e-commerce systems. The project is fully open source under the original ContextMCP license.</p>
+
+        <p><strong>We need your help.</strong> This is early-stage software, and there's a lot to build:</p>
+        <ul>
+            <li>Better documentation and examples</li>
+            <li>Support for more vector databases</li>
+            <li>Improved chunking strategies for different codebases</li>
+            <li>A web UI for configuration and indexing</li>
+            <li>CI/CD integration for automatic reindexing</li>
+        </ul>
+
+        <p>Whether you're fixing a bug, improving the docs, or adding a feature — <strong>pull requests are warmly welcomed.</strong></p>
+
+        <div class="cta-box">
+            <h3>Get Started Today</h3>
+            <p>Self-host your documentation MCP server. Open source. Free. Private.</p>
+            <a href="https://github.com/J3ys/ContextMCPDocker" class="btn">Star on GitHub</a>
+            <p style="margin-top: 1rem; font-size: 1rem;">★ Contributions welcome • MIT License • Dockerized for your convenience</p>
+        </div>
+
+        <h2>Conclusion: You Deserve Both</h2>
+
+        <p>Context7 is excellent at what it does — providing instant access to public library documentation. It's a tool we use and recommend.</p>
+
+        <p>But if you're building software, most of the documentation you need is <em>your own</em>. Your internal APIs, your team conventions, your architecture decisions. That knowledge shouldn't be locked in people's heads or scattered across wiki pages.</p>
+
+        <p>ContextMCP Dockerized brings that knowledge into your AI assistant's reach. Run it locally for privacy, run it in the cloud for team access, and soon — run it on a dedicated fork with even more features.</p>
+
+        <p>Your AI assistant is only as good as the context you give it. Give it everything.</p>
+
+    </article>
+
+    <footer class="footer">
+        <ul class="footer-links">
+            <li><a href="https://sendel.org/">Sendel.org</a></li>
+            <li><a href="https://github.com/J3ys/ContextMCPDocker">GitHub</a></li>
+            <li><a href="https://context7.com/">Context7</a></li>
+        </ul>
+        <p>© 2026 ContextMCP Dockerized by Sendel.org. Open source.</p>
+    </footer>
+</body>
+</html>
