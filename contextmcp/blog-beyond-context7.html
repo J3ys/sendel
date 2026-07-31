@@ -163,6 +163,11 @@
 
         <p>One of the most powerful features of ContextMCP Dockerized is <strong>multi-repo indexing</strong>. Instead of configuring one repository at a time, you can point it at a directory of projects:</p>
 
+        <div class="highlight-box-blue">
+            <p><strong>New:</strong> ContextMCP Dockerized now also supports local backup and restore for the indexed corpus, making it much easier for teams to reuse one prepared local knowledge base instead of forcing everyone to rerun indexing from scratch.</p>
+            <p><a href="blog-backup-restore-teams.html" style="color:#2563eb;font-weight:700;text-decoration:none;">Read more about backup, restore, and the team benefits →</a></p>
+        </div>
+
         <div class="code-box">
 LOCAL_DOCS_ROOT=/path/to/your/projects<br>
 LOCAL_DOCS_REPOS=frontend=typescript,backend=java:src/main,infra=typescript
