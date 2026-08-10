@@ -112,10 +112,11 @@ docker compose -f docker-compose.local.yml up -d app</div>
         <div class="code-box">{
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
-    "contextmcp": {
+    "cmcp": {
       "type": "remote",
       "url": "http://localhost:8787/mcp",
-      "enabled": true
+      "enabled": true,
+      "timeout": 30000
     }
   }
 }</div>
@@ -128,7 +129,7 @@ docker compose -f docker-compose.local.yml up -d app</div>
 
         <div class="code-box">{
   "mcpServers": {
-    "contextmcp": {
+    "cmcp": {
       "type": "http",
       "url": "http://localhost:8787/mcp"
     }
