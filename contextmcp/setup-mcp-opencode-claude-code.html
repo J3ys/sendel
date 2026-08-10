@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup MCP Instructions: ContextMCP For OpenCode And Claude Code</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #1a202c; }
+        .nav { background: white; border-bottom: 1px solid #e2e8f0; padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 1.5rem; font-weight: 800; text-decoration: none; color: #1a202c; }
+        .logo-icon { width: 40px; height: 40px; }
+        .hero { padding: 4rem 2rem; background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%); }
+        .hero-container { max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-meta { color: #64748b; margin-bottom: 2rem; }
+        .hero-description { font-size: 1.3rem; color: #475569; }
+        .content { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
+        .content h2 { font-size: 2rem; margin-top: 3rem; margin-bottom: 1rem; }
+        .content h3 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: #4338ca; }
+        .content p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .content ul { margin-left: 2rem; margin-bottom: 1.5rem; }
+        .content li { margin-bottom: 0.75rem; font-size: 1.05rem; }
+        .code-box { background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0; font-family: 'Courier New', monospace; font-size: 0.9rem; overflow-x: auto; white-space: pre-wrap; }
+        .highlight-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 2rem; margin: 2rem 0; border-radius: 8px; }
+        .highlight-box-blue { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 2rem; margin: 2rem 0; border-radius: 8px; }
+        .setup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+        .setup-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 1.5rem; }
+        .setup-card h4 { margin-bottom: 0.75rem; font-size: 1.15rem; color: #1e293b; }
+        .setup-card p { margin-bottom: 0; font-size: 1rem; color: #475569; }
+        .cta-box { background: linear-gradient(135deg, #4338ca 0%, #3b82f6 100%); color: white; padding: 3rem; border-radius: 20px; text-align: center; margin: 4rem 0; }
+        .btn { padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 10px; text-decoration: none; display: inline-block; background: white; color: #4338ca; }
+        .footer { background: #1a202c; color: #94a3b8; padding: 2rem; margin-top: 4rem; text-align: center; }
+        .footer-links { list-style: none; display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-links a { color: #94a3b8; text-decoration: none; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .setup-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+    <script src="../js/ga.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="blog-beyond-context7.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" fill="none" aria-label="ContextMCP private repository vector icon" role="img">
+                    <rect x="22" y="24" width="36" height="28" rx="6" stroke="#2563eb" stroke-width="4"/>
+                    <path d="M31 35H49" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M31 44H45" stroke="#60a5fa" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M64 29L74 34V45C74 52 70 57 64 60C58 57 54 52 54 45V34L64 29Z" fill="#7c3aed"/>
+                    <rect x="60" y="42" width="8" height="6.5" rx="2" fill="#ffffff"/>
+                    <path d="M61 42C61 40.3 62.3 39 64 39C65.7 39 67 40.3 67 42" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                    <circle cx="32" cy="68" r="3.5" fill="#60a5fa"/>
+                    <circle cx="43" cy="68" r="3.5" fill="#2563eb"/>
+                    <circle cx="54" cy="68" r="3.5" fill="#8b5cf6"/>
+                </svg>
+                <span>ContextMCP Dockerized</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Setup MCP Instructions: ContextMCP For OpenCode And Claude Code</h1>
+            <div class="hero-meta">Published August 10, 2026 • 5 min read</div>
+            <p class="hero-description">
+                This is the practical setup page: how to wire ContextMCP Dockerized into OpenCode and Claude Code, and what changed now that the runtime uses our own ContextMCP fork.
+            </p>
+        </div>
+    </section>
+
+    <article class="content">
+        <p>If you already understand why ContextMCP Dockerized matters, the next question is simple: how do you actually connect it to the AI tools you use every day?</p>
+
+        <p>This page is the short answer. It gives you the MCP endpoint to point at, the config shapes for OpenCode and Claude Code, and one important update about the project architecture.</p>
+
+        <h2>What Changed</h2>
+
+        <p>ContextMCP Dockerized now runs on top of our own fork of <code>context-mcp</code>. That matters because the local-mode and code-indexing improvements are no longer just described as future work in a wrapper layer. They now live in the fork-backed implementation path we are actually using.</p>
+
+        <div class="highlight-box">
+            <p><strong>In practice:</strong> <code>J3ys/ContextMCPDocker</code> remains the Dockerized setup and operational wrapper, while the underlying ContextMCP behavior now comes from our own forked <code>J3ys/context-mcp</code> repository.</p>
+        </div>
+
+        <h2>What You Need First</h2>
+
+        <div class="setup-grid">
+            <div class="setup-card">
+                <h4>Local app running</h4>
+                <p>Have the local app reachable at <code>http://localhost:8787/mcp</code> before you configure your AI tool.</p>
+            </div>
+            <div class="setup-card">
+                <h4>Indexed content</h4>
+                <p>The tool connection is only useful once you have already indexed the repositories or documentation you care about.</p>
+            </div>
+        </div>
+
+        <p>For the standard local workflow, that typically means:</p>
+
+        <div class="code-box">docker compose -f docker-compose.local.yml up -d pinecone ollama
+docker compose -f docker-compose.local.yml --profile reindex run --rm reindex
+docker compose -f docker-compose.local.yml up -d app</div>
+
+        <p>Once that is done, your MCP endpoint should be available at <code>http://localhost:8787/mcp</code>.</p>
+
+        <h2>OpenCode Setup</h2>
+
+        <p>Current OpenCode docs describe remote MCP servers in <code>opencode.json</code> using a <code>type: "remote"</code> entry under the <code>mcp</code> object. For a local ContextMCP server, the simplest version looks like this:</p>
+
+        <div class="code-box">{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "contextmcp": {
+      "type": "remote",
+      "url": "http://localhost:8787/mcp",
+      "enabled": true
+    }
+  }
+}</div>
+
+        <p>If you keep an OpenCode project config in the repository, this makes the ContextMCP server available as part of the project setup rather than something you have to remember manually later.</p>
+
+        <h2>Claude Code Setup</h2>
+
+        <p>Current Claude Code MCP docs support HTTP MCP servers through a dedicated MCP configuration file. A minimal setup for a local ContextMCP endpoint looks like this:</p>
+
+        <div class="code-box">{
+  "mcpServers": {
+    "contextmcp": {
+      "type": "http",
+      "url": "http://localhost:8787/mcp"
+    }
+  }
+}</div>
+
+        <p>The important part is that Claude Code talks directly to the HTTP MCP endpoint. If you later expose the server through a different hostname or proxy, only the URL needs to change.</p>
+
+        <h2>Why This Still Complements Context7</h2>
+
+        <p>This setup does not replace Context7. It completes it.</p>
+
+        <div class="highlight-box-blue">
+            <p><strong>Context7</strong> is still the fast path for public framework and library docs.<br><br>
+            <strong>ContextMCP Dockerized</strong> is the missing path for your private repos, internal docs, architecture notes, and team-specific code conventions.</p>
+        </div>
+
+        <p>That is still the strongest combination for AI-assisted development: public docs from Context7, private and project-specific context from your own MCP server.</p>
+
+        <h2>Where To Go Next</h2>
+
+        <p>If you want the broader why and trade-offs behind this setup, read the original article comparing Context7 and ContextMCP Dockerized. If you are already convinced, go straight to the repo and run it locally.</p>
+
+        <div class="cta-box">
+            <h3>Connect Your Own Context</h3>
+            <p>Wire the MCP endpoint into your coding tool, index what matters, and give your AI assistant access to the context public tooling will never know by default.</p>
+            <a href="https://github.com/J3ys/ContextMCPDocker" class="btn">View on GitHub</a>
+            <p style="margin-top: 1rem; font-size: 1rem;">Open source • Local-first • Fork-backed implementation</p>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <ul class="footer-links">
+            <li><a href="https://sendel.org/">Sendel.org</a></li>
+            <li><a href="https://github.com/J3ys/ContextMCPDocker">GitHub</a></li>
+            <li><a href="blog-beyond-context7.html">Main ContextMCP article</a></li>
+            <li><a href="blog-backup-restore-teams.html">Backup and restore article</a></li>
+        </ul>
+        <p>© 2026 ContextMCP Dockerized by Sendel.org. Open source.</p>
+    </footer>
+</body>
+</html>

@@ -177,6 +177,11 @@ LOCAL_DOCS_REPOS=frontend=typescript,backend=java:src/main,infra=typescript
 
         <h2>Getting Started in 5 Minutes</h2>
 
+        <div class="highlight-box-blue">
+            <p><strong>Setup MCP Instructions:</strong> If you already want to wire this into your AI tool, use the dedicated setup guide for OpenCode and Claude Code.</p>
+            <p><a href="setup-mcp-opencode-claude-code.html" style="color:#2563eb;font-weight:700;text-decoration:none;">Read the setup instructions →</a></p>
+        </div>
+
         <ol>
             <li><strong>Clone the repo:</strong> <code>git clone https://github.com/J3ys/ContextMCPDocker</code></li>
             <li><strong>Configure:</strong> Edit <code>config.yaml</code> with your repository</li>
@@ -187,18 +192,18 @@ LOCAL_DOCS_REPOS=frontend=typescript,backend=java:src/main,infra=typescript
 
         <p>That's it. Your MCP server is running and ready to answer questions about your codebase. Add it as an MCP server in your AI coding tool and start querying your own documentation.</p>
 
-        <h2>What's Coming: A Dedicated Fork</h2>
+        <h2>Now Running On Our Own ContextMCP Fork</h2>
 
-        <p>ContextMCP Dockerized currently builds on top of the upstream <code>dodopayments/context-mcp</code> project with a small local-support patch. But we're actively working on a <strong>dedicated fork</strong> that will:</p>
+        <p>ContextMCP Dockerized now builds from our own fork of <code>context-mcp</code>. That gives us a cleaner home for the local-mode and code-indexing improvements that matter for private documentation workflows.</p>
 
         <ul>
-            <li>Add native multi-repo support in the core engine</li>
-            <li>Improve the reindex pipeline for incremental updates</li>
-            <li>Support more embedding providers and vector stores</li>
-            <li>Provide a web UI for managing indexed sources</li>
+            <li>Local Pinecone support now lives in the fork-backed implementation path</li>
+            <li>Code-aware chunking and local workflow improvements are no longer just future-only ideas</li>
+            <li>The Docker wrapper stays focused on packaging, setup, and operational convenience</li>
+            <li>Future improvements can now land in the runtime source we actually use</li>
         </ul>
 
-        <p>The fork will remain fully open source — because documentation access shouldn't be locked behind a paywall.</p>
+        <p>The result is a cleaner split: the fork owns the application behavior, and the Dockerized project owns the deployment and local developer experience around it.</p>
 
         <h2>Open Source: Built by Sendel.org</h2>
 
@@ -228,7 +233,7 @@ LOCAL_DOCS_REPOS=frontend=typescript,backend=java:src/main,infra=typescript
 
         <p>But if you're building software, most of the documentation you need is <em>your own</em>. Your internal APIs, your team conventions, your architecture decisions. That knowledge shouldn't be locked in people's heads or scattered across wiki pages.</p>
 
-        <p>ContextMCP Dockerized brings that knowledge into your AI assistant's reach. Run it locally for privacy, run it in the cloud for team access, and soon — run it on a dedicated fork with even more features.</p>
+        <p>ContextMCP Dockerized brings that knowledge into your AI assistant's reach. Run it locally for privacy, run it in the cloud for team access, and use the fork-backed runtime to keep improving the private-context workflow over time.</p>
 
         <p>Your AI assistant is only as good as the context you give it. Give it everything.</p>
 
