@@ -100,8 +100,15 @@
         <p>For the standard local workflow, that typically means:</p>
 
         <div class="code-box">docker compose -f docker-compose.local.yml up -d pinecone ollama
+docker compose -f docker-compose.local.yml --profile bootstrap run --rm ollama-bootstrap
 docker compose -f docker-compose.local.yml --profile reindex run --rm reindex
 docker compose -f docker-compose.local.yml up -d app</div>
+
+        <p>That bootstrap step pulls the default embedding model into the local Dockerized Ollama service before reindexing starts.</p>
+
+        <p>Or pull it manually into the local Docker Ollama service:</p>
+
+        <div class="code-box">docker compose -f docker-compose.local.yml exec ollama ollama pull nomic-embed-text</div>
 
         <p>Once that is done, your MCP endpoint should be available at <code>http://localhost:8787/mcp</code>.</p>
 
