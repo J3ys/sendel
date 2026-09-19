@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obliviate: Recover a Spoiled AI Agent Session Without Starting Over</title>
+    <meta name="description" content="Install Obliviate for Claude Code or OpenCode, then safely remove or redo a request accidentally sent to the wrong agent without losing a useful session.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #1a202c; }
+        .nav { background: white; border-bottom: 1px solid #e2e8f0; padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 1.5rem; font-weight: 800; text-decoration: none; color: #1a202c; }
+        .logo-icon { width: 40px; height: 40px; }
+        .hero { padding: 4rem 2rem; background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%); }
+        .hero-container { max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-meta { color: #64748b; margin-bottom: 2rem; }
+        .hero-description { font-size: 1.3rem; color: #475569; }
+        .content { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
+        .content h2 { font-size: 2rem; margin-top: 3rem; margin-bottom: 1rem; }
+        .content h3 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: #4338ca; }
+        .content p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .content ul, .content ol { margin-left: 2rem; margin-bottom: 1.5rem; }
+        .content li { margin-bottom: 0.75rem; font-size: 1.05rem; }
+        .code-box { background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0; font-family: 'Courier New', monospace; font-size: 0.9rem; overflow-x: auto; }
+        .highlight-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 2rem; margin: 2rem 0; border-radius: 8px; }
+        .highlight-box-blue { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 2rem; margin: 2rem 0; border-radius: 8px; }
+        .cta-box { background: linear-gradient(135deg, #4338ca 0%, #3b82f6 100%); color: white; padding: 3rem; border-radius: 20px; text-align: center; margin: 4rem 0; }
+        .btn { padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 10px; text-decoration: none; display: inline-block; background: white; color: #4338ca; }
+        .footer { background: #1a202c; color: #94a3b8; padding: 2rem; margin-top: 4rem; text-align: center; }
+        .footer-links { list-style: none; display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-links a { color: #94a3b8; text-decoration: none; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+    <script src="../js/ga.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="obliviate.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" fill="none" aria-label="Obliviate session recovery icon" role="img">
+                    <rect x="22" y="24" width="36" height="28" rx="6" stroke="#2563eb" stroke-width="4"/>
+                    <path d="M31 35H49" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M31 44H45" stroke="#60a5fa" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M64 29L74 34V45C74 52 70 57 64 60C58 57 54 52 54 45V34L64 29Z" fill="#7c3aed"/>
+                    <rect x="60" y="42" width="8" height="6.5" rx="2" fill="#ffffff"/>
+                    <path d="M61 42C61 40.3 62.3 39 64 39C65.7 39 67 40.3 67 42" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                    <circle cx="32" cy="68" r="3.5" fill="#60a5fa"/>
+                    <circle cx="43" cy="68" r="3.5" fill="#2563eb"/>
+                    <circle cx="54" cy="68" r="3.5" fill="#8b5cf6"/>
+                </svg>
+                <span>Obliviate</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Obliviate: Recover a Spoiled AI Agent Session Without Starting Over</h1>
+            <div class="hero-meta">Published September 18, 2026 • 5 min read</div>
+            <p class="hero-description">A practical guide to removing or redoing a request sent to the wrong agent, while preserving the useful context already built in your Claude Code or OpenCode session.</p>
+        </div>
+    </section>
+
+    <article class="content">
+        <p>You are coordinating two agent tasks. One session is focused on Task A, while another agent is handling Task B. Then you paste Task B's request into the Task A session by accident.</p>
+
+        <p>You correct yourself in the next message, but the incorrect request is still part of the history. The agent can keep treating it as relevant context, bringing the wrong domain, constraints, or implementation direction back into a task that was otherwise on track.</p>
+
+        <div class="highlight-box">
+            <p><strong>The problem is historical context.</strong> A correction tells the agent what you mean now. It does not make the accidental request disappear from the session it can still read.</p>
+        </div>
+
+        <h2>What Obliviate Changes</h2>
+
+        <p>Obliviate treats session history as an editable artifact. Instead of abandoning a useful conversation because one request was sent to the wrong agent, you can remove that turn or redo it with the correct instruction.</p>
+
+        <p>The edit is deliberately designed to be safe:</p>
+        <ul>
+            <li>The source or live session is never modified.</li>
+            <li>Every edit happens on a fork of the session.</li>
+            <li>Deletion requires explicit confirmation of the complete affected set.</li>
+            <li>Structural IDs and references are preserved and validated; every mutation keeps a backup.</li>
+        </ul>
+
+        <h2>Install Obliviate</h2>
+
+        <h3>Claude Code</h3>
+        <p>Add the marketplace, then install the plugin:</p>
+        <div class="code-box">
+/plugin marketplace add J3ys/Obliviate<br>
+/plugin install obliviate@Obliviate
+        </div>
+        <p>Verify that <code>obliviate</code> appears in <code>/plugin</code>. Restart Claude Code if it asks you to do so.</p>
+
+        <h3>OpenCode</h3>
+        <p>Install the OpenCode skill and editor agent into the current project:</p>
+        <div class="code-box">
+curl -fsSL https://raw.githubusercontent.com/J3ys/Obliviate/main/install-opencode.sh | bash
+        </div>
+        <p>Add <code>-- --global</code> to make it available to all projects:</p>
+        <div class="code-box">
+curl -fsSL https://raw.githubusercontent.com/J3ys/Obliviate/main/install-opencode.sh | bash -s -- --global
+        </div>
+        <p>For a project install, confirm that <code>.opencode/skills/obliviate/SKILL.md</code> and <code>.opencode/agents/obliviate-editor.md</code> exist. For a global install, confirm the same paths under <code>~/.config/opencode/</code>. Restart OpenCode after installation because skills and agents are not hot-reloaded.</p>
+
+        <h2>Recover the Session</h2>
+
+        <ol>
+            <li><strong>Identify the accidental request.</strong> Locate the turn containing the request intended for the Task B agent.</li>
+            <li><strong>Ask Obliviate to remove or redo it.</strong> Use a clear request such as "remove the request I sent to the wrong agent" or "redo my earlier request with the Task A instructions."</li>
+            <li><strong>Review the forked session.</strong> Obliviate shows the affected turns before making the history change.</li>
+            <li><strong>Confirm the affected set.</strong> Verify that the selected turns are the accidental cross-task instructions, then approve the edit.</li>
+            <li><strong>Continue with corrected context.</strong> Work in the forked session, where the mistaken Task B request no longer distracts the Task A conversation.</li>
+        </ol>
+
+        <div class="highlight-box-blue">
+            <p><strong>Your original session remains available.</strong> Obliviate works on a fork, so the original conversation stays untouched as a reference while you continue with corrected context.</p>
+        </div>
+
+        <h2>When This Is Useful</h2>
+
+        <ul>
+            <li>A prompt for another agent task was sent into the active session.</li>
+            <li>An earlier prompt was based on an assumption that proved false.</li>
+            <li>A dead-end approach is repeatedly influencing later answers even after it was corrected.</li>
+        </ul>
+
+        <h2>Keep the Useful Context</h2>
+
+        <p>Restarting a session is expensive when most of its context is still valuable. If one cross-task request spoiled an otherwise productive conversation, Obliviate lets you correct the history instead of throwing the whole session away.</p>
+
+        <div class="cta-box">
+            <h3>Keep the Context That Still Matters</h3>
+            <p>Install Obliviate, remove the wrong turn on a safe fork, and continue with the session you already built.</p>
+            <a href="https://github.com/J3ys/Obliviate" class="btn">View Obliviate on GitHub</a>
+            <p style="margin-top: 1rem; font-size: 1rem;">Open source &bull; Claude Code and OpenCode &bull; Safe session forks</p>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <ul class="footer-links">
+            <li><a href="https://sendel.org/">Sendel.org</a></li>
+            <li><a href="https://github.com/J3ys/Obliviate">GitHub</a></li>
+            <li><a href="https://github.com/J3ys/ContextMCPDocker">ContextMCP Dockerized</a></li>
+        </ul>
+        <p>&copy; 2026 ContextMCP Dockerized by Sendel.org. Open source.</p>
+    </footer>
+</body>
+</html>
